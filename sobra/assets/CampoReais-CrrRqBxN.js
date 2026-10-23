@@ -1,0 +1,1 @@
+import{h as e}from"./dinheiro-BL3Gzcrm.js";import{n as t,r as n,t as r}from"./input-group-BeHzMvk7.js";var i=e();function a({className:e,...a}){return(0,i.jsxs)(r,{className:e,children:[(0,i.jsx)(n,{inputMode:`decimal`,autoComplete:`off`,placeholder:`0,00`,...a,className:`text-base tabular-nums`}),(0,i.jsx)(t,{children:`R$`})]})}export{a as t};

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Sobra</title>
+    <meta
+      name="description"
+      content="Sobra é um painel de finanças pessoais que roda no navegador: lançamentos, orçamentos por categoria, metas de poupança e importação de extrato CSV. Projeto de portfólio com dados fictícios."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/sobra/favicon.svg" />
+    <script>
+      // Tema antes do primeiro desenho (direcao.md §5.2), para não piscar. Mesma regra do
+      // CaixaProvider: claro -> data-theme="light", escuro -> "dark", sistema -> sem atributo;
+      // a classe `dark` acompanha o tema efetivo (variante dark do shadcn).
+      ;(function () {
+        var tema = 'sistema'
+        try {
+          var salvo = JSON.parse(localStorage.getItem('sobra:v1') || 'null')
+          if (salvo && (salvo.tema === 'claro' || salvo.tema === 'escuro')) tema = salvo.tema
+        } catch (e) {}
+        var html = document.documentElement
+        if (tema !== 'sistema') html.setAttribute('data-theme', tema === 'claro' ? 'light' : 'dark')
+        var escuro =
+          tema === 'escuro' ||
+          (tema === 'sistema' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches)
+        if (escuro) html.classList.add('dark')
+      })()
+    </script>
+    <script type="module" crossorigin src="/sobra/assets/index-cH08k54U.js"></script>
+    <link rel="modulepreload" crossorigin href="/sobra/assets/dinheiro-BL3Gzcrm.js">
+    <link rel="modulepreload" crossorigin href="/sobra/assets/useScrollLock-DxW8fgns.js">
+    <link rel="modulepreload" crossorigin href="/sobra/assets/DialogPopup-Bec1owMD.js">
+    <link rel="modulepreload" crossorigin href="/sobra/assets/DialogRoot-12B3HZfz.js">
+    <link rel="stylesheet" crossorigin href="/sobra/assets/index-BwDDW9hl.css">
+  </head>
+  <body>
+    <noscript>
+      O Sobra é um aplicativo e precisa de JavaScript ligado para funcionar. Os dados ficam só
+      neste navegador.
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
