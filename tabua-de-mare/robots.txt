@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spidermitobr.github.io/tabua-de-mare/sitemap-index.xml
