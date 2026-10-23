@@ -3,34 +3,59 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SpiderMitoBR Games</title>
-<meta name="description" content="Jogos para Android feitos por SpiderMitoBR.">
+<title>SpiderMitoBR · jogos e sites</title>
+<meta name="description" content="Jogos para Android e sites feitos por SpiderMitoBR.">
 <style>
   :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito","Segoe UI",system-ui,sans-serif}
-  main{max-width:640px;margin:0 auto;padding:48px 16px}
+  main{max-width:720px;margin:0 auto;padding:48px 16px 64px}
   h1{font-size:30px;margin:0 0 4px}
-  p.sub{color:var(--muted);margin:0 0 28px}
-  .game{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+  p.sub{color:var(--muted);margin:0 0 40px}
+  section+section{margin-top:44px}
+  section>h2{font-size:20px;margin:0 0 14px}
+  .game,.site{background:#fff;border:1px solid var(--line);border-radius:20px}
+  .game{display:flex;gap:16px;align-items:center;padding:18px}
   .game svg{width:72px;height:72px;flex:none}
-  .game h2{margin:0;font-size:22px}
-  .game p{margin:4px 0 8px;color:var(--muted)}
+  .game h3,.site h3{margin:0;font-size:22px}
+  .game p,.site p{margin:4px 0 8px;color:var(--muted)}
+  .site{overflow:hidden}
+  .site img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
+  .site div{padding:18px}
+  .site .stack{font-size:14px}
+  .site .links{display:flex;flex-wrap:wrap;gap:6px 20px;margin:12px 0 0}
   a{color:#c2386f;font-weight:700}
 </style>
 </head>
 <body>
 <main>
-  <h1>SpiderMitoBR Games</h1>
-  <p class="sub">Jogos para Android.</p>
-  <div class="game">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="55" rx="40" ry="35" fill="#ff9cc2" stroke="#d96b97" stroke-width="3"/><circle cx="37" cy="48" r="9" fill="#fff"/><circle cx="63" cy="48" r="9" fill="#fff"/><circle cx="38" cy="49" r="4.5" fill="#2b2233"/><circle cx="64" cy="49" r="4.5" fill="#2b2233"/><path d="M40 64 Q50 74 60 64" stroke="#2b2233" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
-    <div>
-      <h2>Bolota</h2>
-      <p>Cuide do seu bichinho virtual, jogue minigames e descubra todas as evoluções.</p>
-      <a href="bolota/privacidade.html">Política de privacidade</a>
+  <h1>SpiderMitoBR</h1>
+  <p class="sub">Jogos para Android e sites.</p>
+
+  <section aria-labelledby="jogos">
+    <h2 id="jogos">Jogos</h2>
+    <div class="game">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="55" rx="40" ry="35" fill="#ff9cc2" stroke="#d96b97" stroke-width="3"/><circle cx="37" cy="48" r="9" fill="#fff"/><circle cx="63" cy="48" r="9" fill="#fff"/><circle cx="38" cy="49" r="4.5" fill="#2b2233"/><circle cx="64" cy="49" r="4.5" fill="#2b2233"/><path d="M40 64 Q50 74 60 64" stroke="#2b2233" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+      <div>
+        <h3>Bolota</h3>
+        <p>Cuide do seu bichinho virtual, jogue minigames e descubra todas as evoluções.</p>
+        <a href="bolota/privacidade.html">Política de privacidade</a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section aria-labelledby="sites">
+    <h2 id="sites">Sites</h2>
+    <article class="site">
+      <a href="torra-nove/" tabindex="-1" aria-hidden="true"><img src="portfolio/torra-nove.webp" width="1200" height="750" alt="" loading="lazy"></a>
+      <div>
+        <h3>Torra Nove</h3>
+        <p>Landing page de uma microtorrefação de café fictícia da Serra da Mantiqueira. A página imita o rótulo do pacote, e as datas de torra e entrega são calculadas para o dia da visita, com escolha da região.</p>
+        <p class="stack">Next.js, Tailwind CSS, shadcn/ui e GSAP. Marca fictícia; fotos e vídeo de acervos abertos, com créditos no site.</p>
+        <p class="links"><a href="torra-nove/">Ver o site</a></p>
+      </div>
+    </article>
+  </section>
 </main>
 </body>
 </html>
