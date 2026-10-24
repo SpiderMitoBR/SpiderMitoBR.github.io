@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estante sob medida | Respiga, marcenaria em Curitiba</title>
+    <meta
+      name="description"
+      content="Monte sua estante de madeira em módulos, veja medidas e preço na hora e encomende. Freijó, cumaru ou imbuia, feita em Curitiba em 4 semanas."
+    />
+    <meta name="theme-color" content="#0f1012" />
+    <link rel="icon" href="/respiga/icone.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      as="image"
+      href="/respiga/img/estante-padrao.webp"
+      imagesrcset="/respiga/img/estante-padrao-720.webp 720w, /respiga/img/estante-padrao-960.webp 960w, /respiga/img/estante-padrao.webp 1440w"
+      imagesizes="(min-width: 1024px) 90vh, 100vw"
+      fetchpriority="high"
+    />
+    <script type="module" crossorigin src="/respiga/assets/index-CmolgXs4.js"></script>
+    <link rel="stylesheet" crossorigin href="/respiga/assets/index-C3Guqdt4.css">
+  </head>
+  <body>
+    <main id="topo">
+      <!-- Produto: a cena 3D é a sala escura; o cartão de imbuia fica à direita (colunas 8–12) -->
+      <section id="heroi" class="heroi" aria-labelledby="titulo">
+        <div id="palco" class="palco" data-estado="imagem">
+          <div class="palco-livre">
+            <img
+              class="palco-imagem"
+              src="/respiga/img/estante-padrao.webp"
+              srcset="/respiga/img/estante-padrao-720.webp 720w, /respiga/img/estante-padrao-960.webp 960w, /respiga/img/estante-padrao.webp 1440w"
+              sizes="(min-width: 1024px) 90vh, 100vw"
+              width="1440"
+              height="1600"
+              fetchpriority="high"
+              alt="Desenho da estante padrão: 3 módulos e 4 níveis em freijó, fundo giz, sobre pés."
+            />
+            <p class="palco-carregando" hidden>Montando a estante…</p>
+            <div class="palco-aviso" id="palco-aviso" hidden>
+              <p id="palco-aviso-texto"></p>
+              <button type="button" class="link" id="palco-recarregar" hidden>Recarregar</button>
+            </div>
+            <noscript>
+              <div class="palco-aviso">
+                <p>Para montar a sua estante, ative o JavaScript. Os preços estão na tabela mais abaixo.</p>
+              </div>
+            </noscript>
+            <p class="palco-dica" id="palco-dica" hidden>
+              <span>Arraste para girar. Role ou use dois dedos para aproximar.</span>
+              <span id="palco-dica-teclado">Setas giram a estante; + e − aproximam.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="cartao" id="configurador">
+          <nav class="cartao-topo" aria-label="Principal">
+            <a class="marca" href="#topo">Respiga</a>
+            <button type="button" class="link carrinho-botao" id="abrir-carrinho" aria-label="Abrir carrinho, 0 estantes">
+              Carrinho (<span data-carrinho-qtd>0</span>)
+            </button>
+          </nav>
+
+          <h1 class="titulo-espalhado" id="titulo"><span>Estante</span> <span>sob</span> <span>medida</span></h1>
+
+          <div class="fatos">
+            <p id="fato-medidas">127,2 × 149 × 35 cm</p>
+            <p id="fato-preco" class="fato-preco">R$ 2.680,00</p>
+            <p id="fato-prazo">Pronta em 4 semanas</p>
+          </div>
+          <p class="apoio">Escolha quantos vãos de 40 por 32 cm ela tem e a madeira. A oficina corta e monta em Curitiba.</p>
+          <p class="aviso" id="aviso-link" hidden>
+            Parte do link não existia na nossa tabela e foi trocada pela opção mais próxima.
+          </p>
+
+          <form class="controles" id="form-estante" aria-label="Configuração da estante">
+            <fieldset class="campo">
+              <legend id="legenda-largura">Largura: 3 módulos, 127,2&nbsp;cm</legend>
+              <div class="passo">
+                <button type="button" class="passo-botao" data-passo="modulos" data-delta="-1" aria-label="Menos um módulo">−</button>
+                <output class="passo-valor" data-valor="modulos">3</output>
+                <button type="button" class="passo-botao" data-passo="modulos" data-delta="1" aria-label="Mais um módulo">+</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="campo">
+              <legend id="legenda-altura">Altura: 4 níveis, 149&nbsp;cm</legend>
+              <div class="passo">
+                <button type="button" class="passo-botao" data-passo="niveis" data-delta="-1" aria-label="Menos um nível">−</button>
+                <output class="passo-valor" data-valor="niveis">4</output>
+                <button type="button" class="passo-botao" data-passo="niveis" data-delta="1" aria-label="Mais um nível">+</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="campo campo-largo" id="campo-madeira">
+              <legend id="legenda-madeira">Madeira: Freijó</legend>
+              <div class="amostras">
+                <label class="amostra">
+                  <input type="radio" name="madeira" value="freijo" aria-label="Freijó" style="--cor: #b09065" checked />
+                  <span aria-hidden="true">incluído</span>
+                </label>
+                <label class="amostra">
+                  <input type="radio" name="madeira" value="cumaru" aria-label="Cumaru + R$ 380,00" style="--cor: #7f410b" />
+                  <span aria-hidden="true">+ R$ 380,00</span>
+                </label>
+                <label class="amostra">
+                  <input type="radio" name="madeira" value="imbuia" aria-label="Imbuia + R$ 690,00" style="--cor: #3f220f" />
+                  <span aria-hidden="true">+ R$ 690,00</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="campo campo-largo">
+              <legend id="legenda-fundo">Cor do fundo: Giz</legend>
+              <div class="amostras">
+                <label class="amostra"><input type="radio" name="fundo" value="giz" aria-label="Giz" style="--cor: #e6e2d8" checked /></label>
+                <label class="amostra"><input type="radio" name="fundo" value="grafite" aria-label="Grafite" style="--cor: #34373a" /></label>
+                <label class="amostra"><input type="radio" name="fundo" value="erva-mate" aria-label="Erva-mate" style="--cor: #6b7046" /></label>
+                <label class="amostra"><input type="radio" name="fundo" value="pinhao" aria-label="Pinhão" style="--cor: #7a3b2e" /></label>
+                <label class="amostra"><input type="radio" name="fundo" value="azul-colonial" aria-label="Azul colonial" style="--cor: #3d5a73" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="campo campo-largo">
+              <legend>Base</legend>
+              <div class="opcoes">
+                <label class="opcao"><input type="radio" name="base" value="pes" checked /> <span>Pés de 12 cm</span></label>
+                <label class="opcao"><input type="radio" name="base" value="rodizios" /> <span>Rodízios com trava, 8 cm (+ R$ 160,00)</span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="cartao-pe">
+            <span class="credito">Marcenaria em Curitiba</span>
+            <button type="button" class="botao" data-adicionar>Adicionar ao carrinho</button>
+            <button type="button" class="link" id="copiar-link">Copiar link</button>
+          </div>
+          <p class="retorno" id="retorno" role="status"></p>
+          <p class="so-leitor" id="anuncio" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </section>
+
+      <!-- Medidas: uma moldura, três distâncias -->
+      <section id="medidas" class="medidas" aria-labelledby="medidas-titulo">
+        <div class="medidas-trilho">
+          <div class="medidas-palco" data-etapa="0">
+            <h2 class="medidas-titulo" id="medidas-titulo">
+              <span class="metade metade-1">Cada vão mede</span>
+              <span class="metade metade-2">40 por 32 cm</span>
+            </h2>
+            <div class="moldura" id="medidas-desenho">
+              <figure class="distancia" data-vista="inteira">
+                <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><style>.cota line{stroke:#efe9e0;stroke-width:1.5}.cota .halo line{stroke:#0f1012;stroke-width:5}.cota text,.rot{fill:#efe9e0;font:400 17px "Inter Tight",Arial,sans-serif;font-variant-numeric:tabular-nums;paint-order:stroke;stroke:#0f1012;stroke-width:4px;stroke-linejoin:round}.rot.fraco{fill:#aaa49a}.guia{stroke:#aaa49a;stroke-width:1.5;fill:none}</style><rect x="26.7" y="315.6" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="26.7" y="238.3" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="26.7" y="161.1" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="26.7" y="83.8" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="122.3" y="315.6" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="122.3" y="238.3" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="122.3" y="161.1" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="122.3" y="83.8" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="217.8" y="315.6" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="217.8" y="238.3" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="217.8" y="161.1" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="217.8" y="83.8" width="91.5" height="73.2" fill="#e6e2d8"/><rect x="26.7" y="388.8" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="26.7" y="311.5" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="26.7" y="234.2" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="26.7" y="156.9" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="26.7" y="79.7" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="122.3" y="388.8" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="122.3" y="311.5" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="122.3" y="234.2" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="122.3" y="156.9" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="122.3" y="79.7" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="217.8" y="388.8" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="217.8" y="311.5" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="217.8" y="234.2" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="217.8" y="156.9" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="217.8" y="79.7" width="91.5" height="4.1" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="22.6" y="79.7" width="4.1" height="313.2" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="118.1" y="79.7" width="4.1" height="313.2" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="213.7" y="79.7" width="4.1" height="313.2" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="309.3" y="79.7" width="4.1" height="313.2" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><polygon points="28.6,392.9 37.2,392.9 36.1,420.3 29.7,420.3" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><polygon points="298.8,392.9 307.4,392.9 306.3,420.3 299.9,420.3" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><g class="cota"><g class="halo"><line x1="22.6" y1="65.9" x2="313.4" y2="65.9"/><line x1="22.6" y1="59.900000000000006" x2="22.6" y2="71.9"/><line x1="313.4" y1="59.900000000000006" x2="313.4" y2="71.9"/></g><line x1="22.6" y1="65.9" x2="313.4" y2="65.9"/><line x1="22.6" y1="59.900000000000006" x2="22.6" y2="71.9"/><line x1="313.4" y1="59.900000000000006" x2="313.4" y2="71.9"/><text x="168" y="57.900000000000006" text-anchor="middle">127,2 cm</text></g><g class="cota"><g class="halo"><line x1="327.1" y1="420.3" x2="327.1" y2="79.7"/><line x1="321.1" y1="420.3" x2="333.1" y2="420.3"/><line x1="321.1" y1="79.7" x2="333.1" y2="79.7"/></g><line x1="327.1" y1="420.3" x2="327.1" y2="79.7"/><line x1="321.1" y1="420.3" x2="333.1" y2="420.3"/><line x1="321.1" y1="79.7" x2="333.1" y2="79.7"/><text x="337.1" y="256" text-anchor="start">149 cm</text></g><text class="rot fraco" x="22.6" y="448.3">35 cm de fundo</text></svg>
+                <figcaption>A estante padrão inteira: 127,2 cm de largura, 149 cm de altura, 35 cm de fundo.</figcaption>
+              </figure>
+              <figure class="distancia" data-vista="vao">
+                <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><style>.cota line{stroke:#efe9e0;stroke-width:1.5}.cota .halo line{stroke:#0f1012;stroke-width:5}.cota text,.rot{fill:#efe9e0;font:400 17px "Inter Tight",Arial,sans-serif;font-variant-numeric:tabular-nums;paint-order:stroke;stroke:#0f1012;stroke-width:4px;stroke-linejoin:round}.rot.fraco{fill:#aaa49a}.guia{stroke:#aaa49a;stroke-width:1.5;fill:none}</style><rect x="70" y="365.7" width="260" height="208" fill="#e6e2d8"/><rect x="70" y="146" width="260" height="208" fill="#e6e2d8"/><rect x="70" y="-73.7" width="260" height="208" fill="#e6e2d8"/><rect x="70" y="-293.4" width="260" height="208" fill="#e6e2d8"/><rect x="341.7" y="365.7" width="260" height="208" fill="#e6e2d8"/><rect x="341.7" y="146" width="260" height="208" fill="#e6e2d8"/><rect x="341.7" y="-73.7" width="260" height="208" fill="#e6e2d8"/><rect x="341.7" y="-293.4" width="260" height="208" fill="#e6e2d8"/><rect x="613.4" y="365.7" width="260" height="208" fill="#e6e2d8"/><rect x="613.4" y="146" width="260" height="208" fill="#e6e2d8"/><rect x="613.4" y="-73.7" width="260" height="208" fill="#e6e2d8"/><rect x="613.4" y="-293.4" width="260" height="208" fill="#e6e2d8"/><rect x="70" y="573.7" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="70" y="354" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="70" y="134.3" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="70" y="-85.4" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="70" y="-305.1" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="341.7" y="573.7" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="341.7" y="354" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="341.7" y="134.3" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="341.7" y="-85.4" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="341.7" y="-305.1" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="613.4" y="573.7" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="613.4" y="354" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="613.4" y="134.3" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="613.4" y="-85.4" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="613.4" y="-305.1" width="260" height="11.7" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="58.3" y="-305.1" width="11.7" height="890.5" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="330" y="-305.1" width="11.7" height="890.5" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="601.7" y="-305.1" width="11.7" height="890.5" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="873.4" y="-305.1" width="11.7" height="890.5" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><polygon points="75.3,585.4 99.9,585.4 96.7,663.4 78.5,663.4" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><polygon points="843.6,585.4 868.3,585.4 865,663.4 846.8,663.4" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><g class="cota"><g class="halo"><line x1="70" y1="178.5" x2="330" y2="178.5"/><line x1="70" y1="172.5" x2="70" y2="184.5"/><line x1="330" y1="172.5" x2="330" y2="184.5"/></g><line x1="70" y1="178.5" x2="330" y2="178.5"/><line x1="70" y1="172.5" x2="70" y2="184.5"/><line x1="330" y1="172.5" x2="330" y2="184.5"/><text x="200" y="198.5" text-anchor="middle">40 cm</text></g><g class="cota"><g class="halo"><line x1="291" y1="354" x2="291" y2="146"/><line x1="285" y1="354" x2="297" y2="354"/><line x1="285" y1="146" x2="297" y2="146"/></g><line x1="291" y1="354" x2="291" y2="146"/><line x1="285" y1="354" x2="297" y2="354"/><line x1="285" y1="146" x2="297" y2="146"/><text x="281" y="256" text-anchor="end">32 cm</text></g></svg>
+                <figcaption>Um vão: 40 cm de largura por 32 cm de altura, livre entre as chapas.</figcaption>
+              </figure>
+              <figure class="distancia" data-vista="quina">
+                <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><style>.cota line{stroke:#efe9e0;stroke-width:1.5}.cota .halo line{stroke:#0f1012;stroke-width:5}.cota text,.rot{fill:#efe9e0;font:400 17px "Inter Tight",Arial,sans-serif;font-variant-numeric:tabular-nums;paint-order:stroke;stroke:#0f1012;stroke-width:4px;stroke-linejoin:round}.rot.fraco{fill:#aaa49a}.guia{stroke:#aaa49a;stroke-width:1.5;fill:none}</style><rect x="272.8" y="4312.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="272.8" y="2945.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="272.8" y="1578.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="272.8" y="211.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="1963.4" y="4312.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="1963.4" y="2945.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="1963.4" y="1578.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="1963.4" y="211.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="3654" y="4312.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="3654" y="2945.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="3654" y="1578.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="3654" y="211.6" width="1617.8" height="1294.2" fill="#e6e2d8"/><rect x="272.8" y="5606.9" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="272.8" y="4239.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="272.8" y="2872.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="272.8" y="1505.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="272.8" y="138.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="1963.4" y="5606.9" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="1963.4" y="4239.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="1963.4" y="2872.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="1963.4" y="1505.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="1963.4" y="138.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="3654" y="5606.9" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="3654" y="4239.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="3654" y="2872.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="3654" y="1505.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="3654" y="138.8" width="1617.8" height="72.8" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="200" y="138.8" width="72.8" height="5540.9" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="1890.6" y="138.8" width="72.8" height="5540.9" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="3581.2" y="138.8" width="72.8" height="5540.9" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="5271.7" y="138.8" width="72.8" height="5540.9" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><polygon points="305.2,5679.7 458.8,5679.7 438.6,6165 325.4,6165" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><polygon points="5085.7,5679.7 5239.3,5679.7 5219.1,6165 5105.9,6165" fill="#b09065" stroke="rgba(239,233,224,0.28)" stroke-width="1"/><rect x="200" y="155" width="72.8" height="40.4" fill="#e6d3b0" stroke="rgba(239,233,224,0.28)" stroke-width="1.5"/><polygon points="200,162.2 254.6,175.2 200,188.1" fill="#2a1a0e"/><path class="guia" d="M214.2 175.2 L151.5 284.4 L38.2 284.4"/><text class="rot" x="38.2" y="306.4">cunha</text><path class="guia" d="M264.7 189.3 L240.4 349.1 L38.2 349.1"/><text class="rot" x="38.2" y="371.1">respiga</text><g class="cota"><g class="halo"><line x1="200" y1="94.3" x2="272.8" y2="94.3"/><line x1="200" y1="88.3" x2="200" y2="100.3"/><line x1="272.8" y1="88.3" x2="272.8" y2="100.3"/></g><line x1="200" y1="94.3" x2="272.8" y2="94.3"/><line x1="200" y1="88.3" x2="200" y2="100.3"/><line x1="272.8" y1="88.3" x2="272.8" y2="100.3"/><text x="236.4" y="86.3" text-anchor="middle">1,8 cm</text></g></svg>
+                <figcaption>A quina: chapa de 1,8 cm e a ponta da respiga com a cunha.</figcaption>
+              </figure>
+            </div>
+            <p class="medidas-nota">A chapa tem 1,8 cm. A prateleira atravessa a lateral e uma cunha de madeira trava o encaixe.</p>
+          </div>
+          <div class="marcador" data-etapa="0" aria-hidden="true"></div>
+          <div class="marcador" data-etapa="1" aria-hidden="true"></div>
+          <div class="marcador" data-etapa="2" aria-hidden="true"></div>
+        </div>
+
+        <div class="pratico">
+          <p><strong>Largura.</strong> 2 módulos, 85,4 cm. 3 módulos, 127,2 cm. 4 módulos, 169 cm. 5 módulos, 210,8 cm. A conta é 40 cm por vão mais 1,8 cm por chapa.</p>
+          <p><strong>Altura.</strong> 3 níveis, 115,2 cm. 4 níveis, 149 cm. 5 níveis, 182,8 cm. 6 níveis, 216,6 cm. Com pés de 12 cm. Com rodízios de 8 cm, tire 4 cm.</p>
+          <p><strong>Profundidade.</strong> 35 cm em todas, com o fundo de 6 mm incluído.</p>
+          <p><strong>O que cabe.</strong> Um vão de 32 cm de altura recebe livro de arte e pasta A4 em pé. Na largura de 40 cm entram cerca de 30 livros de bolso ou 12 discos de vinil por fileira.</p>
+          <p><strong>Antes de pedir.</strong> Meça a parede e o caminho até ela: a lateral mais alta passa por porta de 80 cm deitada, e nenhuma peça é mais longa que a altura da estante.</p>
+        </div>
+      </section>
+
+      <!-- Materiais: imagem presa à esquerda, lista ativa à direita -->
+      <section id="materiais" class="materiais" aria-labelledby="materiais-titulo">
+        <h2 id="materiais-titulo">Do que é feita</h2>
+        <div class="materiais-imagem">
+          <figure class="mat-figura ativa" data-item="freijo">
+            <img src="/respiga/texturas/freijo/cor.jpg" width="1024" height="1024" loading="lazy" decoding="async" alt="Textura usada na estante 3D: freijó" />
+            <figcaption>Textura usada na estante 3D: freijó</figcaption>
+          </figure>
+          <figure class="mat-figura" data-item="cumaru">
+            <img src="/respiga/texturas/cumaru/cor.jpg" width="1024" height="1024" loading="lazy" decoding="async" alt="Textura usada na estante 3D: cumaru" />
+            <figcaption>Textura usada na estante 3D: cumaru</figcaption>
+          </figure>
+          <figure class="mat-figura" data-item="imbuia">
+            <img
+              src="/respiga/img/imbuia-veio-800.webp"
+              srcset="/respiga/img/imbuia-veio-800.webp 800w, /respiga/img/imbuia-veio.webp 1600w"
+              sizes="(min-width: 1024px) 34vw, 100vw"
+              width="800"
+              height="408"
+              loading="lazy"
+              decoding="async"
+              alt="Tábua de imbuia, veio ondulado"
+            />
+            <figcaption>Tábua de imbuia, veio ondulado</figcaption>
+          </figure>
+          <figure class="mat-figura" data-item="compensado"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="60" y="133" width="280" height="24" fill="#b09065"/><rect x="60" y="159" width="280" height="24" fill="#8a7457"/><circle cx="74" cy="171" r="4" fill="#6d5a42"/><circle cx="94" cy="171" r="4" fill="#6d5a42"/><circle cx="114" cy="171" r="4" fill="#6d5a42"/><circle cx="134" cy="171" r="4" fill="#6d5a42"/><circle cx="154" cy="171" r="4" fill="#6d5a42"/><circle cx="174" cy="171" r="4" fill="#6d5a42"/><circle cx="194" cy="171" r="4" fill="#6d5a42"/><circle cx="214" cy="171" r="4" fill="#6d5a42"/><circle cx="234" cy="171" r="4" fill="#6d5a42"/><circle cx="254" cy="171" r="4" fill="#6d5a42"/><circle cx="274" cy="171" r="4" fill="#6d5a42"/><circle cx="294" cy="171" r="4" fill="#6d5a42"/><circle cx="314" cy="171" r="4" fill="#6d5a42"/><circle cx="334" cy="171" r="4" fill="#6d5a42"/><rect x="60" y="185" width="280" height="24" fill="#c9b08a"/><rect x="60" y="211" width="280" height="24" fill="#8a7457"/><circle cx="74" cy="223" r="4" fill="#6d5a42"/><circle cx="94" cy="223" r="4" fill="#6d5a42"/><circle cx="114" cy="223" r="4" fill="#6d5a42"/><circle cx="134" cy="223" r="4" fill="#6d5a42"/><circle cx="154" cy="223" r="4" fill="#6d5a42"/><circle cx="174" cy="223" r="4" fill="#6d5a42"/><circle cx="194" cy="223" r="4" fill="#6d5a42"/><circle cx="214" cy="223" r="4" fill="#6d5a42"/><circle cx="234" cy="223" r="4" fill="#6d5a42"/><circle cx="254" cy="223" r="4" fill="#6d5a42"/><circle cx="274" cy="223" r="4" fill="#6d5a42"/><circle cx="294" cy="223" r="4" fill="#6d5a42"/><circle cx="314" cy="223" r="4" fill="#6d5a42"/><circle cx="334" cy="223" r="4" fill="#6d5a42"/><rect x="60" y="237" width="280" height="24" fill="#c9b08a"/><rect x="60" y="263" width="280" height="24" fill="#8a7457"/><circle cx="74" cy="275" r="4" fill="#6d5a42"/><circle cx="94" cy="275" r="4" fill="#6d5a42"/><circle cx="114" cy="275" r="4" fill="#6d5a42"/><circle cx="134" cy="275" r="4" fill="#6d5a42"/><circle cx="154" cy="275" r="4" fill="#6d5a42"/><circle cx="174" cy="275" r="4" fill="#6d5a42"/><circle cx="194" cy="275" r="4" fill="#6d5a42"/><circle cx="214" cy="275" r="4" fill="#6d5a42"/><circle cx="234" cy="275" r="4" fill="#6d5a42"/><circle cx="254" cy="275" r="4" fill="#6d5a42"/><circle cx="274" cy="275" r="4" fill="#6d5a42"/><circle cx="294" cy="275" r="4" fill="#6d5a42"/><circle cx="314" cy="275" r="4" fill="#6d5a42"/><circle cx="334" cy="275" r="4" fill="#6d5a42"/><rect x="60" y="289" width="280" height="24" fill="#c9b08a"/><rect x="60" y="315" width="280" height="24" fill="#8a7457"/><circle cx="74" cy="327" r="4" fill="#6d5a42"/><circle cx="94" cy="327" r="4" fill="#6d5a42"/><circle cx="114" cy="327" r="4" fill="#6d5a42"/><circle cx="134" cy="327" r="4" fill="#6d5a42"/><circle cx="154" cy="327" r="4" fill="#6d5a42"/><circle cx="174" cy="327" r="4" fill="#6d5a42"/><circle cx="194" cy="327" r="4" fill="#6d5a42"/><circle cx="214" cy="327" r="4" fill="#6d5a42"/><circle cx="234" cy="327" r="4" fill="#6d5a42"/><circle cx="254" cy="327" r="4" fill="#6d5a42"/><circle cx="274" cy="327" r="4" fill="#6d5a42"/><circle cx="294" cy="327" r="4" fill="#6d5a42"/><circle cx="314" cy="327" r="4" fill="#6d5a42"/><circle cx="334" cy="327" r="4" fill="#6d5a42"/><rect x="60" y="341" width="280" height="24" fill="#b09065"/></svg></figure>
+          <figure class="mat-figura" data-item="fundo"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="0" y="0" width="80.5" height="500" fill="#e6e2d8"/><rect x="80" y="0" width="80.5" height="500" fill="#34373a"/><rect x="160" y="0" width="80.5" height="500" fill="#6b7046"/><rect x="240" y="0" width="80.5" height="500" fill="#7a3b2e"/><rect x="320" y="0" width="80.5" height="500" fill="#3d5a73"/></svg></figure>
+          <figure class="mat-figura" data-item="verniz"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="0" y="300" width="400" height="200" fill="#7f410b"/><rect x="0" y="282" width="400" height="18" fill="#c7b9a3" opacity="0.55"/><rect x="0" y="264" width="400" height="18" fill="#d8ccb8" opacity="0.45"/><rect x="0" y="246" width="400" height="18" fill="#e9e0d0" opacity="0.35"/><path d="M0 360 C80 340 160 380 240 356 S360 330 400 352" stroke="#5d2f08" stroke-width="5" fill="none"/><path d="M0 420 C90 400 170 440 250 414 S370 392 400 410" stroke="#5d2f08" stroke-width="5" fill="none"/></svg></figure>
+          <figure class="mat-figura" data-item="base"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="30" y="130" width="160" height="22" fill="#b09065"/><polygon points="88,152 132,152 124,370 96,370" fill="#b09065"/><rect x="210" y="130" width="160" height="22" fill="#b09065"/><rect x="250" y="152" width="80" height="8" fill="#4a4d50"/><rect x="276" y="160" width="28" height="16" fill="#4a4d50"/><rect x="266" y="176" width="48" height="10" fill="#4a4d50"/><rect x="266" y="186" width="8" height="120" fill="#4a4d50"/><rect x="306" y="186" width="8" height="120" fill="#4a4d50"/><circle cx="290" cy="300" r="70" fill="#1b1b1c" stroke="#4a4d50" stroke-width="3"/><circle cx="290" cy="300" r="14" fill="#4a4d50"/><rect x="314" y="214" width="44" height="10" fill="#4a4d50" transform="rotate(-18 314 214)"/></svg></figure>
+        </div>
+
+        <div class="materiais-lista">
+          <ul class="mat-lista">
+            <li class="mat ativa" data-item="freijo">
+              <button type="button" class="mat-botao" aria-expanded="true" aria-controls="mat-freijo">
+                <span class="mat-nome">Freijó</span><span class="mat-valor">incluído</span>
+              </button>
+              <p class="mat-desc" id="mat-freijo">Madeira clara e dourada, de veio reto, da Amazônia. Usamos lâmina de freijó de plantio manejado, com nota de origem. Envelhece puxando para o mel.</p>
+            </li>
+            <li class="mat" data-item="cumaru">
+              <button type="button" class="mat-botao" aria-expanded="false" aria-controls="mat-cumaru">
+                <span class="mat-nome">Cumaru</span><span class="mat-valor">+ R$ 380,00</span>
+              </button>
+              <p class="mat-desc" id="mat-cumaru">Castanho alaranjado com veio fechado. É das madeiras mais duras do Brasil, por isso a lâmina custa mais e pede lixa mais fina. Escurece um pouco no primeiro ano.</p>
+            </li>
+            <li class="mat" data-item="imbuia">
+              <button type="button" class="mat-botao" aria-expanded="false" aria-controls="mat-imbuia">
+                <span class="mat-nome">Imbuia</span><span class="mat-valor">+ R$ 690,00</span>
+              </button>
+              <p class="mat-desc" id="mat-imbuia">A madeira escura do Paraná, de veio ondulado, que fez os móveis de tanta casa curitibana. Hoje só em lâmina, de fornecedor com origem documentada.</p>
+            </li>
+            <li class="mat" data-item="compensado">
+              <button type="button" class="mat-botao" aria-expanded="false" aria-controls="mat-compensado">
+                <span class="mat-nome">Compensado de 18 mm</span><span class="mat-valor">em todas</span>
+              </button>
+              <p class="mat-desc" id="mat-compensado">O miolo de laterais e prateleiras: lâminas cruzadas e coladas, que não empenam como a tábua maciça. A lâmina da madeira escolhida cobre as duas faces e as bordas levam fita da mesma madeira.</p>
+            </li>
+            <li class="mat" data-item="fundo">
+              <button type="button" class="mat-botao" aria-expanded="false" aria-controls="mat-fundo">
+                <span class="mat-nome">Fundo laqueado</span><span class="mat-valor">5 cores</span>
+              </button>
+              <p class="mat-desc" id="mat-fundo">Chapa de 6 mm com laca fosca na cor que você escolhe. Giz, grafite, erva-mate, pinhão ou azul colonial, todas pelo mesmo preço.</p>
+            </li>
+            <li class="mat" data-item="verniz">
+              <button type="button" class="mat-botao" aria-expanded="false" aria-controls="mat-verniz">
+                <span class="mat-nome">Verniz fosco base água</span><span class="mat-valor">em todas</span>
+              </button>
+              <p class="mat-desc" id="mat-verniz">Três demãos, com lixa entre elas. Não amarela com o tempo e deixa a madeira com cara de madeira.</p>
+            </li>
+            <li class="mat" data-item="base">
+              <button type="button" class="mat-botao" aria-expanded="false" aria-controls="mat-base">
+                <span class="mat-nome">Pés ou rodízios</span><span class="mat-valor">pés incluídos, rodízios + R$ 160,00</span>
+              </button>
+              <p class="mat-desc" id="mat-base">Pés de 12 cm na mesma madeira da estante, ou rodízios de borracha de 8 cm com trava nas quatro rodas, para afastar a estante na hora de limpar.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Como é feita: fileira de momentos -->
+      <section id="como-e-feita" class="oficina" aria-labelledby="oficina-titulo">
+        <div class="oficina-topo">
+          <h2 id="oficina-titulo">Como ela é feita</h2>
+          <div class="oficina-botoes">
+            <button type="button" class="quadrado" data-rolar="-1" aria-label="Voltar">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+            </button>
+            <button type="button" class="quadrado" data-rolar="1" aria-label="Avançar">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="oficina-progresso" aria-hidden="true"><span></span></div>
+        <ol class="oficina-fileira" tabindex="0" aria-label="Momentos da oficina, em ordem">
+          <li class="momento">
+            <h3>Quando o pedido chega</h3>
+            <p>O link da sua estante vira uma folha de corte: quantas laterais, quantas prateleiras, quantos fundos e em que madeira. Respondemos o e-mail em um dia útil.</p>
+            <figure class="momento-imagem desenho" id="folha-de-corte"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="400" height="500" fill="#e6e2d8"/><g fill="#2b2620" font-family="Inter Tight, Arial, sans-serif" font-size="19" style="font-variant-numeric:tabular-nums"><text x="40" y="70" font-size="26" font-weight="500">Folha de corte</text><text x="40" y="104">Estante 3 × 4 em freijó</text><text x="40" y="132" fill="#6a6157">fundo giz, medidas em cm</text><text x="40" y="200">Laterais</text><text x="232" y="200" text-anchor="end">2</text><text x="360" y="200" text-anchor="end">137 × 35</text><text x="40" y="250">Divisórias</text><text x="232" y="250" text-anchor="end">2</text><text x="360" y="250" text-anchor="end">137 × 35</text><text x="40" y="300">Prateleiras</text><text x="232" y="300" text-anchor="end">15</text><text x="360" y="300" text-anchor="end">40 × 35</text><text x="40" y="350">Fundos</text><text x="232" y="350" text-anchor="end">12</text><text x="360" y="350" text-anchor="end">40 × 32</text><text x="40" y="400">Cunhas</text><text x="232" y="400" text-anchor="end">30</text><text x="360" y="400" text-anchor="end"></text></g><rect x="40" y="440" width="120" height="8" fill="#f08a3e"/></svg></figure>
+          </li>
+          <li class="momento">
+            <h3>Na primeira semana</h3>
+            <p>As chapas são cortadas e escolhidas pelo veio, para o desenho da madeira seguir de uma lateral à outra. Cada peça ganha o seu nome a lápis.</p>
+            <figure class="momento-imagem">
+              <img src="/respiga/img/imbuia-veio-800.webp" width="800" height="408" loading="lazy" decoding="async" alt="Tábua de imbuia" />
+            </figure>
+          </li>
+          <li class="momento">
+            <h3>Depois, a marcação</h3>
+            <p>O graminho risca a espessura de cada respiga nas pontas das prateleiras e o furo que ela vai atravessar na lateral.</p>
+            <figure class="momento-imagem">
+              <img src="/respiga/img/graminho-800.webp" width="800" height="536" loading="lazy" decoding="async" alt="Graminho de mecha" />
+            </figure>
+          </li>
+          <li class="momento">
+            <h3>Furo por furo</h3>
+            <p>A mecha é aberta e acertada no formão, para a respiga entrar justa, sem folga que a cola teria de esconder.</p>
+            <figure class="momento-imagem">
+              <img src="/respiga/img/formoes-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="Jogo de formões de marceneiro" />
+            </figure>
+          </li>
+          <li class="momento">
+            <h3>Ajuste à mão</h3>
+            <p>A plaina tira o que sobra até cada prateleira entrar com duas batidas de maço. A cunha é cortada para o encaixe dela, e só dela.</p>
+            <figure class="momento-imagem">
+              <img src="/respiga/img/plaina-maravalha-800.webp" width="800" height="487" loading="lazy" decoding="async" alt="Plaina de bancada e maravalha" />
+            </figure>
+          </li>
+          <li class="momento">
+            <h3>Na terceira semana</h3>
+            <p>Três demãos de verniz fosco base água, com lixa 320 entre elas. Os fundos recebem a laca na cor escolhida.</p>
+            <figure class="momento-imagem desenho"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="0" y="300" width="400" height="200" fill="#7f410b"/><rect x="0" y="282" width="400" height="18" fill="#c7b9a3" opacity="0.55"/><rect x="0" y="264" width="400" height="18" fill="#d8ccb8" opacity="0.45"/><rect x="0" y="246" width="400" height="18" fill="#e9e0d0" opacity="0.35"/><path d="M0 360 C80 340 160 380 240 356 S360 330 400 352" stroke="#5d2f08" stroke-width="5" fill="none"/><path d="M0 420 C90 400 170 440 250 414 S370 392 400 410" stroke="#5d2f08" stroke-width="5" fill="none"/></svg></figure>
+          </li>
+          <li class="momento">
+            <h3>Na quarta semana</h3>
+            <p>A estante é montada inteira na oficina e conferida medida por medida. Depois é desmontada, embalada peça por peça e sai para a entrega.</p>
+            <figure class="momento-imagem desenho"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="70" y="390" width="250" height="18" fill="#b09065"/><rect x="76" y="368" width="250" height="18" fill="#b09065"/><rect x="82" y="346" width="250" height="18" fill="#b09065"/><rect x="70" y="324" width="250" height="18" fill="#e6e2d8"/><rect x="76" y="302" width="250" height="18" fill="#b09065"/><rect x="82" y="280" width="250" height="18" fill="#b09065"/><rect x="70" y="258" width="250" height="18" fill="#b09065"/><rect x="76" y="236" width="250" height="18" fill="#e6e2d8"/><rect x="82" y="214" width="250" height="18" fill="#b09065"/><rect x="120" y="190" width="12" height="230" fill="#f08a3e"/><rect x="262" y="190" width="12" height="230" fill="#f08a3e"/><rect x="60" y="414" width="280" height="10" fill="#2b2620"/></svg></figure>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Como o preço é feito: preços como um cardápio -->
+      <section id="preco" class="preco" aria-labelledby="preco-titulo">
+        <div class="preco-cabeca">
+          <h2 id="preco-titulo">Como o preço é feito</h2>
+          <p>O preço é uma conta. Refaça com a estante que você montou.</p>
+        </div>
+        <div class="menu" id="menu-preco"><div class="menu-grupo"><h3>Largura</h3><dl><div class="menu-linha"><dt>Módulo de 40 cm, com 3 níveis</dt><dd>R$ 720,00</dd></div></dl><p class="menu-nota">cada módulo a mais soma um vão de largura</p></div><div class="menu-grupo"><h3>Altura (multiplica o valor dos módulos)</h3><dl><div class="menu-linha" data-chave="niveis-3"><dt>3 níveis</dt><dd>× 1,00</dd></div><div class="menu-linha" data-chave="niveis-4"><dt>4 níveis</dt><dd>× 1,24</dd></div><div class="menu-linha" data-chave="niveis-5"><dt>5 níveis</dt><dd>× 1,47</dd></div><div class="menu-linha" data-chave="niveis-6"><dt>6 níveis</dt><dd>× 1,69</dd></div></dl><p class="menu-nota">cada nível a mais é uma prateleira, um fundo e mais lateral; base e topo já estão contados</p></div><div class="menu-grupo"><h3>Madeira (por estante)</h3><dl><div class="menu-linha" data-chave="madeira-freijo"><dt>Freijó</dt><dd>incluído</dd></div><div class="menu-linha" data-chave="madeira-cumaru"><dt>Cumaru</dt><dd>+ R$ 380,00</dd></div><div class="menu-linha" data-chave="madeira-imbuia"><dt>Imbuia</dt><dd>+ R$ 690,00</dd></div></dl></div><div class="menu-grupo"><h3>Base (por estante)</h3><dl><div class="menu-linha" data-chave="base-pes"><dt>Pés de 12 cm</dt><dd>incluídos</dd></div><div class="menu-linha" data-chave="base-rodizios"><dt>Rodízios com trava</dt><dd>+ R$ 160,00</dd></div></dl></div><div class="menu-grupo"><h3>Cor do fundo</h3><dl><div class="menu-linha"><dt>As cinco cores</dt><dd>sem acréscimo</dd></div></dl></div></div>
+        <div class="preco-conta">
+          <p class="preco-formula">Preço = R$ 720,00 × módulos × fator da altura + madeira + base, arredondado para a dezena de reais mais próxima.</p>
+          <p>A estante padrão, com 3 módulos e 4 níveis em freijó sobre pés: R$ 720,00 × 3 × 1,24 = R$ 2.678,40, que fica R$ 2.680,00.</p>
+          <p class="preco-sua" id="preco-sua">A sua: R$ 720,00 × 3 × 1,24 + R$ 0,00 + R$ 0,00 = R$ 2.680,00.</p>
+          <p class="preco-inclui"><span>O que já está no preço:</span> Entrega e montagem em Curitiba e região metropolitana, duas cantoneiras de fixação na parede, cunhas de reserva e o maço de borracha para desmontar.</p>
+        </div>
+      </section>
+
+      <!-- Entrega e montagem: uma cena, frases que acendem -->
+      <section id="entrega" class="entrega" aria-labelledby="entrega-titulo">
+        <div class="entrega-trilho">
+          <div class="entrega-cena" data-passo="0">
+            <img
+              class="entrega-foto"
+              src="/respiga/img/araucarias-nevoa-800.webp"
+              srcset="/respiga/img/araucarias-nevoa-800.webp 800w, /respiga/img/araucarias-nevoa.webp 1600w"
+              sizes="100vw"
+              width="1600"
+              height="1063"
+              loading="lazy"
+              decoding="async"
+              alt="Araucárias na névoa ao amanhecer (Serra da Bocaina)"
+            />
+            <div class="entrega-veu" aria-hidden="true"></div>
+            <ol class="entrega-frases">
+              <li data-passo="0"><h2 id="entrega-titulo">Entrega e montagem</h2></li>
+              <li data-passo="1">Curitiba e região: incluídas</li>
+              <li data-passo="2">Duas pessoas, cerca de duas horas</li>
+              <li data-passo="3">Encaixe por cunha, à mão</li>
+              <li data-passo="4">Presa à parede, sempre</li>
+              <li data-passo="5">Outras cidades: frete por e-mail</li>
+            </ol>
+            <div class="entrega-fotos" aria-hidden="true">
+              <img data-passo="1" class="ef-esq" src="/respiga/img/casa-gomm-curitiba-800.webp" width="800" height="746" loading="lazy" decoding="async" alt="" />
+              <img data-passo="1" class="ef-dir" src="/respiga/img/largo-da-ordem-800.webp" width="800" height="599" loading="lazy" decoding="async" alt="" />
+              <img data-passo="2" class="ef-esq" src="/respiga/img/formoes-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" />
+              <img data-passo="2" class="ef-dir" src="/respiga/img/plaina-maravalha-800.webp" width="800" height="487" loading="lazy" decoding="async" alt="" />
+              <img data-passo="3" class="ef-esq" src="/respiga/img/graminho-800.webp" width="800" height="536" loading="lazy" decoding="async" alt="" />
+              <img data-passo="3" class="ef-dir" src="/respiga/img/imbuia-veio-800.webp" width="800" height="408" loading="lazy" decoding="async" alt="" />
+              <img data-passo="4" class="ef-esq" src="/respiga/img/largo-da-ordem-800.webp" width="800" height="599" loading="lazy" decoding="async" alt="" />
+              <img data-passo="4" class="ef-dir" src="/respiga/img/formoes-800.webp" width="800" height="1067" loading="lazy" decoding="async" alt="" />
+              <img data-passo="5" class="ef-esq" src="/respiga/img/casa-gomm-curitiba-800.webp" width="800" height="746" loading="lazy" decoding="async" alt="" />
+              <img data-passo="5" class="ef-dir" src="/respiga/img/graminho-800.webp" width="800" height="536" loading="lazy" decoding="async" alt="" />
+            </div>
+          </div>
+          <div class="marcador" data-passo="0" aria-hidden="true"></div>
+          <div class="marcador" data-passo="1" aria-hidden="true"></div>
+          <div class="marcador" data-passo="2" aria-hidden="true"></div>
+          <div class="marcador" data-passo="3" aria-hidden="true"></div>
+          <div class="marcador" data-passo="4" aria-hidden="true"></div>
+          <div class="marcador" data-passo="5" aria-hidden="true"></div>
+        </div>
+
+        <div class="pratico">
+          <p><strong>Quando chega.</strong> Assim que a estante fica pronta, escrevemos para marcar o dia. Entregamos de segunda a sábado, das 8h às 17h, com janela de meio período.</p>
+          <p><strong>Quem monta.</strong> Dois marceneiros da oficina levam as peças embaladas, montam no lugar e levam a embalagem embora. Uma estante de 3 × 4 leva cerca de duas horas.</p>
+          <p><strong>Na parede.</strong> Toda estante vai presa por duas cantoneiras de aço. Em parede de alvenaria usamos bucha comum; em drywall, avise no pedido para levarmos a bucha certa.</p>
+          <p><strong>Com rodízios.</strong> As rodas travam e a cantoneira solta com uma volta de chave, para afastar a estante na limpeza. Para estantes de 5 e 6 níveis, recomendamos pés.</p>
+          <p><strong>Fora de Curitiba.</strong> Para o resto do Paraná, Santa Catarina e São Paulo, a estante vai desmontada em caixas, com o manual de uma folha, as cunhas e o maço. O frete é cotado por e-mail antes de você confirmar o pedido. A montagem pede duas pessoas e nenhuma ferramenta além do maço.</p>
+        </div>
+      </section>
+
+      <!-- Perguntas: ao lado de uma foto alta -->
+      <section id="perguntas" class="perguntas" aria-labelledby="perguntas-titulo">
+        <div class="perguntas-texto">
+          <h2 id="perguntas-titulo">Perguntas</h2>
+          <ul class="perguntas-fatos">
+            <li>Oficina no Rebouças, Curitiba</li>
+            <li>Atendimento por e-mail, de segunda a sexta, 9h–18h</li>
+            <li><a href="mailto:pedidos@marcenariarespiga.com.br">pedidos@marcenariarespiga.com.br</a></li>
+          </ul>
+          <div class="faq">
+            <details>
+              <summary>Posso pedir uma medida fora da tabela?</summary>
+              <p>Por esta página, não. O configurador trabalha com vãos de 40 × 32 cm porque é essa medida que a oficina corta em série. Para outra largura, altura ou profundidade, escreva para pedidos@marcenariarespiga.com.br e fazemos um orçamento à parte.</p>
+            </details>
+            <details>
+              <summary>Quanto peso cada prateleira aguenta?</summary>
+              <p>Até 25 kg bem distribuídos por vão, o que dá uma fileira cheia de livros de capa dura. Coisa pesada num ponto só (uma caixa de som grande, um vaso de pedra) vai melhor no nível de baixo.</p>
+            </details>
+            <details>
+              <summary>Preciso furar a parede?</summary>
+              <p>Sim. A cantoneira de fixação vai em toda estante, de qualquer altura, porque uma estante cheia de livros tomba se alguém puxar uma prateleira de cima. Quem monta faz os furos.</p>
+            </details>
+            <details>
+              <summary>Dá para desmontar numa mudança?</summary>
+              <p>Dá. As cunhas saem com batidas leves do maço, de baixo para cima, e a estante volta a ser um monte de chapas. Guarde as cunhas no saquinho que vai junto: cada uma foi cortada para o seu encaixe e tem o número dele a lápis.</p>
+            </details>
+            <details>
+              <summary>Como cuido da madeira?</summary>
+              <p>Pano seco, ou levemente úmido para poeira grudada. Evite álcool e lustra-móveis com silicone. Risco fundo se resolve com lixa 320 no sentido do veio e uma demão de verniz fosco base água.</p>
+            </details>
+            <details>
+              <summary>Posso mudar o pedido depois de enviar?</summary>
+              <p>Até o fim da primeira semana, sim, sem custo: as chapas ainda não foram cortadas. Depois disso, mudanças de tamanho viram um pedido novo; troca da cor do fundo ainda dá até a terceira semana.</p>
+            </details>
+            <details>
+              <summary>Como eu pago?</summary>
+              <p>Esta loja é uma demonstração e não cobra nada. Numa loja de verdade, a oficina responderia o e-mail do pedido com o frete, se houver, e um link de pagamento; a produção começaria depois da confirmação.</p>
+            </details>
+          </div>
+          <div class="perguntas-fecho">
+            <a class="botao" href="#configurador" data-montar>Montar a minha</a>
+            <a class="link" href="mailto:pedidos@marcenariarespiga.com.br?subject=D%C3%BAvida%20sobre%20estante">Escrever para a oficina</a>
+          </div>
+        </div>
+        <div class="perguntas-fotos">
+          <figure class="foto-alta">
+            <img
+              src="/respiga/img/casa-gomm-curitiba-800.webp"
+              srcset="/respiga/img/casa-gomm-curitiba-800.webp 800w, /respiga/img/casa-gomm-curitiba.webp 1600w"
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              width="800"
+              height="746"
+              loading="lazy"
+              decoding="async"
+              alt="Casa Gomm, no Batel: casa de pinho-do-paraná de 1906"
+            />
+            <figcaption>Casa Gomm, no Batel: casa de pinho-do-paraná de 1906</figcaption>
+          </figure>
+          <figure class="foto-quadrada">
+            <img src="/respiga/img/plaina-maravalha-800.webp" width="800" height="487" loading="lazy" decoding="async" alt="Plaina de bancada e maravalha" />
+            <figcaption>Plaina de bancada e maravalha</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé: o nome em largura total sobre a última foto -->
+    <footer class="rodape" id="rodape">
+      <div class="rodape-topo">
+        <nav aria-label="Seções da página">
+          <ul>
+            <li><a href="#medidas">Medidas</a></li>
+            <li><a href="#materiais">Materiais</a></li>
+            <li><a href="#como-e-feita">Como é feita</a></li>
+            <li><a href="#preco">Preço</a></li>
+            <li><a href="#perguntas">Perguntas</a></li>
+          </ul>
+        </nav>
+        <address>
+          <a href="mailto:pedidos@marcenariarespiga.com.br">pedidos@marcenariarespiga.com.br</a><br />
+          Oficina no Rebouças, Curitiba<br />
+          Segunda a sexta, 9h–18h
+        </address>
+      </div>
+      <div class="rodape-foto">
+        <img
+          src="/respiga/img/largo-da-ordem-800.webp"
+          srcset="/respiga/img/largo-da-ordem-800.webp 800w, /respiga/img/largo-da-ordem.webp 1600w"
+          sizes="100vw"
+          width="1600"
+          height="1198"
+          loading="lazy"
+          decoding="async"
+          alt="Largo da Ordem, centro histórico de Curitiba, ao fim da tarde."
+        />
+        <svg class="rodape-nome" viewBox="0 0 1000 232" role="img" aria-label="Respiga">
+          <text x="0" y="186" textLength="1000" lengthAdjust="spacingAndGlyphs">Respiga</text>
+        </svg>
+      </div>
+      <p class="rodape-legal">
+        A Respiga é uma marcenaria fictícia, criada para um portfólio. Os pedidos desta página não são produzidos nem cobrados.
+        <strong>Fotos:</strong> “Shaving wood (Unsplash)”, por fireskystudios.com asthetik, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Shaving_wood_(Unsplash).jpg">Wikimedia Commons</a>; “Selection of woodworking chisels”, por Aiko, Thomas &amp; Juliette+Isaac, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Selection_of_woodworking_chisels.jpg">Wikimedia Commons</a>; “Mortise gauge”, por Jordanhill School D&amp;T Dept, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Mortise_gauge.jpg">Wikimedia Commons</a>; “Imbuia Holz”, por Philipp Zinger, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Imbuia_Holz.JPG">Wikimedia Commons</a>; “CasaGommCuritiba”, por SamirNosteb, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:CasaGommCuritiba.jpg">Wikimedia Commons</a>; “Araucárias ao fundo Parque Nacional da Serra da Bocaina - denoise”, por Heris Luiz Cordeiro Rocha, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Arauc%C3%A1rias_ao_fundo_Parque_Nacional_da_Serra_da_Bocaina_-_denoise.jpg">Wikimedia Commons</a>; “Largo da Ordem (29538659621)”, por Carlos Ebert from São Paulo, BrazilGRU, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Largo_da_Ordem_(29538659621).jpg">Wikimedia Commons</a>. Fotos redimensionadas e recomprimidas. Texturas de madeira: ambientCG, CC0. Tipo: Inter Tight, de The Inter Project Authors (<a href="https://openfontlicense.org/open-font-license-official-text/">SIL Open Font License 1.1</a>).
+      </p>
+    </footer>
+
+    <!-- Canhoto: o cartão vira um resumo fixo quando o herói sai da tela -->
+    <div class="canhoto" id="canhoto" inert>
+      <div class="canhoto-resumo">
+        <span class="canhoto-preco" data-preco>R$ 2.680,00</span>
+        <button type="button" class="link canhoto-carrinho" id="canhoto-carrinho" aria-label="Abrir carrinho, 0 estantes">
+          Carrinho (<span data-carrinho-qtd>0</span>)
+        </button>
+      </div>
+      <button type="button" class="botao" data-adicionar>Adicionar ao carrinho</button>
+      <p class="canhoto-retorno" id="canhoto-retorno" role="status"></p>
+    </div>
+
+  </body>
+</html>
