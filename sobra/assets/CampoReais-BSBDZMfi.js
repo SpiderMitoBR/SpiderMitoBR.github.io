@@ -1,1 +1,0 @@
-import{p as e}from"./dinheiro-UE10X9s_.js";import{n as t,r as n,t as r}from"./input-group-DKXc8v0r.js";var i=e();function a({className:e,...a}){return(0,i.jsxs)(r,{className:e,children:[(0,i.jsx)(n,{inputMode:`decimal`,autoComplete:`off`,placeholder:`0,00`,...a,className:`text-base tabular-nums`}),(0,i.jsx)(t,{children:`R$`})]})}export{a as t};
