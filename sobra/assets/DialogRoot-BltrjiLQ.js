@@ -1,1 +1,0 @@
-import{Bn as e,f as t}from"./useScrollLock-BBgtsxlq.js";import{a as n}from"./DialogPopup-Bj2CoUL1.js";var r={name:`x`,size:24,node:[[`path`,{d:`M18 6 6 18`,key:`1bl5f8`}],[`path`,{d:`m6 6 12 12`,key:`d8bk6v`}]]};r.node;var i=t(r),a=e(function(e){return n(`dialog`,e)});export{i as n,a as t};

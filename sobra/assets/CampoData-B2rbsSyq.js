@@ -1,1 +1,0 @@
-import{m as e,u as t}from"./dinheiro-CbNJSNlE.js";import{t as n}from"./input-CR-tcfIw.js";var r=e();function i({value:e,onValueChange:i,formato:a=`dd/mm/aaaa`,...o}){return(0,r.jsx)(n,{inputMode:`numeric`,autoComplete:`off`,placeholder:a,maxLength:a===`dd/mm/aaaa`?10:7,...o,value:e,onChange:n=>i(t(n.target.value,a,e))})}export{i as t};
