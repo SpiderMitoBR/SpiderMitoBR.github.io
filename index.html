@@ -3,48 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SpiderMitoBR · sites, tradução, correções e jogos</title>
-<meta name="description" content="Sites, tradução EN→PT-BR, correção de bugs em jogos e mods e jogos, por SpiderMitoBR. Contato por e-mail.">
+<title>Mateus de Almeida Motta · sites e sistemas web</title>
+<meta name="description" content="Mateus de Almeida Motta: sites e sistemas web para pequenos negócios, rápidos e testados. Também faço tradução EN→PT-BR e correção de bugs em jogos e mods. Contato por e-mail.">
 <style>
-  :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9}
+  :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9;--accent:#c2386f;--soft:#fbe7ef}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito","Segoe UI",system-ui,sans-serif}
   main{max-width:720px;margin:0 auto;padding:48px 16px 64px}
-  h1{font-size:30px;margin:0 0 4px}
-  p.sub{color:var(--muted);margin:0 0 40px}
+  a{color:var(--accent);font-weight:700}
+  h1{font-size:30px;margin:0 0 2px;line-height:1.2}
+  p.role{margin:0 0 14px;font-weight:700}
+  p.intro{margin:0 0 14px}
+  p.contact{margin:0 0 40px;font-size:15px;overflow-wrap:anywhere}
+  p.contact span{color:var(--muted);font-size:14px}
   section+section{margin-top:44px}
-  section>h2{font-size:20px;margin:0 0 14px}
-  .site{background:#fff;border:1px solid var(--line);border-radius:20px}
+  section>h2{font-size:20px;margin:0 0 4px}
+  section>p.lead{color:var(--muted);margin:0 0 14px}
+  .site{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .site+.site{margin-top:12px}
   .site h3{margin:0;font-size:22px}
   .site p{margin:4px 0 8px;color:var(--muted)}
-  .site+.site{margin-top:12px}
-  p.contact{margin:-28px 0 40px;font-size:15px;overflow-wrap:anywhere}
-  p.contact span{color:var(--muted);font-size:14px}
-  .cta{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
-  .cta p{margin:0 0 8px;overflow-wrap:anywhere}
-  .cta p.note{color:var(--muted);font-size:14px;margin:0}
-  .site{overflow:hidden}
   .site img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
   .site div{padding:18px}
   .site .stack{font-size:14px}
+  .site .proof{font-size:14px;color:var(--ink);background:var(--soft);border-radius:10px;padding:6px 10px;margin:10px 0 0}
   .site .links{display:flex;flex-wrap:wrap;gap:6px 20px;margin:12px 0 0}
-  a{color:#c2386f;font-weight:700}
+  ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+  ol.steps li{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 16px 12px 52px;position:relative;counter-increment:s}
+  ol.steps li+li{margin-top:8px}
+  ol.steps li::before{content:counter(s);position:absolute;left:16px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center}
+  .cta{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+  .cta p{margin:0 0 8px;overflow-wrap:anywhere}
+  .cta p.note{color:var(--muted);font-size:14px;margin:0}
 </style>
 </head>
 <body>
 <main>
-  <h1>SpiderMitoBR</h1>
-  <p class="sub">Sites, tradução, correção de bugs e jogos.</p>
+  <h1>Mateus de Almeida Motta</h1>
+  <p class="role">Sites e sistemas web para pequenos negócios</p>
+  <p class="intro">Faço sites e aplicações web rápidos, que funcionam bem no celular e são testados antes da entrega. Todo projeto abaixo está no ar e pode ser usado agora. Também faço tradução do inglês para o português do Brasil e correção de bugs em jogos e mods.</p>
   <p class="contact">Contato: <a href="mailto:contato.mateusdealmeidamotta@gmail.com">contato.mateusdealmeidamotta@gmail.com</a><br><span>O e-mail é meu principal meio de comunicação.</span></p>
 
   <section aria-labelledby="sites">
     <h2 id="sites">Sites</h2>
+    <p class="lead">Marcas fictícias, feitas para mostrar tipos diferentes de site. As notas são do Lighthouse, a ferramenta do Google que mede velocidade, acessibilidade, boas práticas e SEO, de 0 a 100.</p>
     <article class="site">
       <a href="torra-nove/" tabindex="-1" aria-hidden="true"><img src="portfolio/torra-nove.webp" width="1200" height="750" alt="" loading="lazy"></a>
       <div>
         <h3>Torra Nove</h3>
         <p>Landing page de uma microtorrefação de café fictícia da Serra da Mantiqueira. A página imita o rótulo do pacote, e as datas de torra e entrega são calculadas para o dia da visita, com escolha da região.</p>
         <p class="stack">Next.js, Tailwind CSS, shadcn/ui e GSAP. Marca fictícia; fotos e vídeo de acervos abertos, com créditos no site.</p>
+        <p class="proof">Lighthouse no computador: 99 em velocidade, 98 em acessibilidade e 100 em boas práticas e SEO.</p>
         <p class="links"><a href="torra-nove/">Ver o site</a></p>
       </div>
     </article>
@@ -54,6 +63,7 @@
         <h3>Sobra</h3>
         <p>Painel de finanças pessoais que responde quanto sobra até o fim do mês. Tem lançamentos, orçamentos por categoria, metas de poupança e importação e exportação de extrato em CSV, nos temas claro e escuro.</p>
         <p class="stack">React, Vite, TypeScript, shadcn/ui e Recharts. Dados fictícios, salvos só no navegador.</p>
+        <p class="proof">Lighthouse 100 nas 4 categorias no computador; no celular, 100 em acessibilidade, boas práticas e SEO. Mais de 270 testes automáticos, inclusive de datas em fusos horários diferentes.</p>
         <p class="links"><a href="sobra/">Abrir o app</a></p>
       </div>
     </article>
@@ -63,6 +73,7 @@
         <h3>Tábua de Maré</h3>
         <p>Site de um festival de música e arte no Recife, com a programação impressa como a tábua de marés da banca. A programação filtra por dia, palco e gênero, monta a agenda de cada pessoa, avisa quando dois shows se cruzam e exporta para o calendário do celular.</p>
         <p class="stack">Astro e TypeScript. Festival, artistas e local fictícios; fotos de acervos abertos.</p>
+        <p class="proof">Lighthouse 100 no computador; no celular, 98 em velocidade e 100 no resto. 119 testes automáticos, inclusive navegando pelo site como um visitante.</p>
         <p class="links"><a href="tabua-de-mare/">Ver o site</a></p>
       </div>
     </article>
@@ -72,6 +83,7 @@
         <h3>Respiga</h3>
         <p>Página de produto de uma marcenaria fictícia de Curitiba que faz estantes sob medida. Você escolhe módulos, níveis, madeira e cor do fundo, gira a estante em 3D, vê medidas, preço e prazo mudarem na hora e monta o pedido no carrinho.</p>
         <p class="stack">TypeScript, Vite e Three.js. Marcenaria fictícia; texturas CC0 e fotos de acervos abertos.</p>
+        <p class="proof">Lighthouse 100 nas 4 categorias no computador; no celular, acima de 90 em velocidade e 100 no resto, mesmo com 3D. A cena monta assim que aparece na tela, para o primeiro toque responder na hora.</p>
         <p class="links"><a href="respiga/">Montar uma estante</a></p>
       </div>
     </article>
@@ -100,6 +112,7 @@
       </div>
     </article>
   </section>
+
   <section aria-labelledby="jogos">
     <h2 id="jogos">Jogos</h2>
     <article class="site">
@@ -111,6 +124,17 @@
         <p class="links"><a href="https://spidermitobr-games.itch.io/tuko-factory-escape">Jogar no itch.io</a></p>
       </div>
     </article>
+  </section>
+
+  <section aria-labelledby="como">
+    <h2 id="como">Como funciona</h2>
+    <p class="lead">Do primeiro e-mail à entrega.</p>
+    <ol class="steps">
+      <li><b>Você conta o que precisa</b> por e-mail: o que o site ou o serviço deve fazer, para quem e até quando.</li>
+      <li><b>Eu respondo com escopo, prazo e preço</b> por escrito, para os dois saberem exatamente o que será entregue.</li>
+      <li><b>Pagamento por etapas.</b> Você aprova cada parte antes de seguir para a próxima.</li>
+      <li><b>Entrega testada</b> no computador e no celular, com tudo o que for preciso para você usar ou publicar.</li>
+    </ol>
   </section>
 
   <section aria-labelledby="contato" class="cta">
