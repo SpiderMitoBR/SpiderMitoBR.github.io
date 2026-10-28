@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tradução e localização · SpiderMitoBR</title>
+<meta name="description" content="Casos de tradução e localização do inglês para o português do Brasil: jogos, mods e modpacks, do arquivo de idioma ao binário sem código-fonte.">
+<style>
+  :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9;--accent:#c2386f;--soft:#fbe7ef}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito","Segoe UI",system-ui,sans-serif}
+  main{max-width:720px;margin:0 auto;padding:48px 16px 64px}
+  a{color:var(--accent);font-weight:700}
+  .back{display:inline-block;margin:0 0 24px;font-size:15px}
+  h1{font-size:30px;margin:0 0 4px;line-height:1.2}
+  p.sub{color:var(--muted);margin:0 0 32px}
+  section+section{margin-top:44px}
+  h2{font-size:20px;margin:0 0 14px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 8px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+  .stat b{display:block;font-size:26px;line-height:1.1}
+  .stat span{color:var(--muted);font-size:14px}
+  .case{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+  .case+.case{margin-top:12px}
+  .case h3{margin:0;font-size:20px}
+  .case .what{margin:2px 0 10px;color:var(--muted);font-size:15px}
+  .case p{margin:0 0 8px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:0;list-style:none}
+  .tags li{background:var(--soft);border-radius:999px;padding:2px 10px;font-size:13px}
+  .pair{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .pair+.pair{margin-top:12px}
+  .pair .row{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:12px 16px}
+  .pair .row+.row{border-top:1px dashed var(--line)}
+  .pair .lang{font-size:12px;font-weight:800;color:var(--muted);padding-top:3px}
+  .pair .row.pt{background:#fffafc}
+  .pair .row.pt .lang{color:var(--accent)}
+  .pair q{quotes:none}
+  .pair .note{padding:0 16px 12px;color:var(--muted);font-size:14px;background:#fffafc}
+  code{background:var(--soft);border-radius:6px;padding:0 5px;font-size:.92em}
+  ul.how{margin:0;padding-left:20px}
+  ul.how li+li{margin-top:6px}
+  .fine{color:var(--muted);font-size:14px;margin-top:32px}
+  @media (max-width:520px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="../">← Voltar</a>
+  <h1>Tradução e localização</h1>
+  <p class="sub">Do inglês para o português do Brasil. Traduzo o texto onde quer que ele esteja guardado (arquivo de idioma, script, programa compilado ou arquivo binário) sem quebrar o software.</p>
+
+  <div class="stats">
+    <div class="stat"><b>~2.500</b><span>textos localizados</span></div>
+    <div class="stat"><b>5</b><span>projetos entregues</span></div>
+    <div class="stat"><b>4</b><span>formatos de arquivo diferentes</span></div>
+  </div>
+
+  <section aria-labelledby="casos">
+    <h2 id="casos">Projetos</h2>
+
+    <article class="case">
+      <h3>SkyFactory 4: missões do modpack</h3>
+      <p class="what">335 descrições e 318 títulos de missões, em 298 arquivos</p>
+      <p>As descrições ficavam num arquivo de idioma; os títulos estavam escritos direto nos scripts das missões. Criei o arquivo em português para as descrições e troquei os títulos por um dicionário, mexendo só na linha do título de cada script. Os trocadilhos dos títulos foram adaptados, não traduzidos ao pé da letra.</p>
+      <ul class="tags"><li>Arquivo de idioma</li><li>Scripts</li><li>Adaptação de humor</li></ul>
+    </article>
+
+    <article class="case">
+      <h3>Minecraft Comes Alive: mod de aldeões</h3>
+      <p class="what">1.302 textos no arquivo em português do Brasil</p>
+      <p>O mod só tinha português de Portugal. Comparei com o arquivo em inglês, traduzi o conteúdo que faltava e revisei o restante para o português do Brasil (“estar a fazer” virou “estar fazendo”, “tu estás” virou “você está”). Os nomes próprios dos aldeões ficaram como estavam.</p>
+      <ul class="tags"><li>Arquivo de idioma</li><li>Revisão PT-PT → PT-BR</li></ul>
+    </article>
+
+    <article class="case">
+      <h3>EternalCraft: mod antigo sem código-fonte</h3>
+      <p class="what">196 nomes de itens e blocos, em duas versões do mod</p>
+      <p>O mod não usava arquivo de idioma: os nomes estavam gravados no programa compilado. Escrevi uma ferramenta que troca só esses textos dentro do arquivo, sem tocar no resto, e conferi o resultado com o desmontador de Java. Depois levei a mesma tradução para uma segunda versão do mod, com outro código.</p>
+      <ul class="tags"><li>Programa compilado</li><li>Ferramenta própria</li><li>Reaproveitamento de glossário</li></ul>
+    </article>
+
+    <article class="case">
+      <h3>Edição Legacy de Minecraft no PC</h3>
+      <p class="what">402 textos que faltavam, correções e 30 textos do executável</p>
+      <p>A tradução oficial estava incompleta nos conteúdos mais novos. Os textos ficavam num arquivo binário dentro de um pacote de dados; extraí, traduzi seguindo os termos da tradução oficial e remontei o pacote. Os textos do executável foram trocados no lugar, sempre do mesmo tamanho ou menores que o original.</p>
+      <ul class="tags"><li>Arquivo binário</li><li>Executável</li><li>Glossário oficial</li></ul>
+    </article>
+  </section>
+
+  <section aria-labelledby="amostras">
+    <h2 id="amostras">Antes e depois</h2>
+
+    <div class="pair">
+      <div class="row"><span class="lang">EN</span><q>Starting from the Bottom</q></div>
+      <div class="row pt"><span class="lang">PT-BR</span><q>Começando de Baixo</q></div>
+    </div>
+
+    <div class="pair">
+      <div class="row"><span class="lang">EN</span><q>COALateral Damage</q></div>
+      <div class="row pt"><span class="lang">PT-BR</span><q>Dano CARVÃOlateral</q></div>
+      <p class="note">O trocadilho com <i>coal</i> (carvão) foi refeito em português.</p>
+    </div>
+
+    <div class="pair">
+      <div class="row"><span class="lang">EN</span><q>Create Lava by using '%1$s' on a Cauldron while holding Cobble.</q></div>
+      <div class="row pt"><span class="lang">PT-BR</span><q>Crie Lava usando '%1$s' num Caldeirão segurando Pedregulho.</q></div>
+      <p class="note">O <code>%1$s</code> vira o nome da tecla dentro do jogo e precisa continuar intacto.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="como">
+    <h2 id="como">Como eu trabalho</h2>
+    <ul class="how">
+      <li><b>Glossário fixo.</b> Termos que já têm tradução oficial seguem a oficial; nomes próprios ficam no original quando a pessoa precisa encontrá-los na tela.</li>
+      <li><b>Nada quebra.</b> Marcadores de variável, cores e formatação são preservados e conferidos.</li>
+      <li><b>Dá para desfazer.</b> Sempre entrego com cópia do original e um jeito de reaplicar a tradução quando o software atualiza.</li>
+      <li><b>Método às claras.</b> Tradução assistida por IA com revisão humana de cada texto.</li>
+    </ul>
+  </section>
+
+  <p class="fine">Os textos originais pertencem aos autores dos jogos e mods. Aqui aparecem só trechos curtos, como amostra.</p>
+</main>
+</body>
+</html>
