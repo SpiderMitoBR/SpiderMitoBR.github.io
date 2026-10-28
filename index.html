@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SpiderMitoBR · jogos, sites, tradução e correções</title>
-<meta name="description" content="Jogos, sites, tradução EN→PT-BR e correção de bugs em jogos e mods, por SpiderMitoBR.">
+<title>SpiderMitoBR · sites, tradução, correções e jogos</title>
+<meta name="description" content="Sites, tradução EN→PT-BR, correção de bugs em jogos e mods e jogos, por SpiderMitoBR. Contato por e-mail.">
 <style>
   :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9}
   *{box-sizing:border-box}
@@ -14,11 +14,15 @@
   p.sub{color:var(--muted);margin:0 0 40px}
   section+section{margin-top:44px}
   section>h2{font-size:20px;margin:0 0 14px}
-  .game,.site{background:#fff;border:1px solid var(--line);border-radius:20px}
-  .game{display:flex;gap:16px;align-items:center;padding:18px}
-  .game svg{width:72px;height:72px;flex:none}
-  .game h3,.site h3{margin:0;font-size:22px}
-  .game p,.site p{margin:4px 0 8px;color:var(--muted)}
+  .site{background:#fff;border:1px solid var(--line);border-radius:20px}
+  .site h3{margin:0;font-size:22px}
+  .site p{margin:4px 0 8px;color:var(--muted)}
+  .site+.site{margin-top:12px}
+  p.contact{margin:-28px 0 40px;font-size:15px;overflow-wrap:anywhere}
+  p.contact span{color:var(--muted);font-size:14px}
+  .cta{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+  .cta p{margin:0 0 8px;overflow-wrap:anywhere}
+  .cta p.note{color:var(--muted);font-size:14px;margin:0}
   .site{overflow:hidden}
   .site img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
   .site div{padding:18px}
@@ -30,28 +34,8 @@
 <body>
 <main>
   <h1>SpiderMitoBR</h1>
-  <p class="sub">Jogos, sites, tradução e correção de bugs.</p>
-
-  <section aria-labelledby="jogos">
-    <h2 id="jogos">Jogos</h2>
-    <div class="game">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="55" rx="40" ry="35" fill="#ff9cc2" stroke="#d96b97" stroke-width="3"/><circle cx="37" cy="48" r="9" fill="#fff"/><circle cx="63" cy="48" r="9" fill="#fff"/><circle cx="38" cy="49" r="4.5" fill="#2b2233"/><circle cx="64" cy="49" r="4.5" fill="#2b2233"/><path d="M40 64 Q50 74 60 64" stroke="#2b2233" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
-      <div>
-        <h3>Bolota</h3>
-        <p>Cuide do seu bichinho virtual, jogue minigames e descubra todas as evoluções.</p>
-        <a href="bolota/privacidade.html">Política de privacidade</a>
-      </div>
-    </div>
-    <article class="site" style="margin-top:12px">
-      <a href="https://spidermitobr-games.itch.io/tuko-factory-escape" tabindex="-1" aria-hidden="true"><img src="portfolio/tuko.webp" width="1200" height="750" alt="" loading="lazy"></a>
-      <div>
-        <h3>TUKO I: Fuga da Fábrica</h3>
-        <p>Jogo de plataforma em que uma lagartixa gruda nas paredes e no teto para fugir da fábrica do Barão Fumaça. São 30 fases em 6 setores, com salas secretas, moscas e ovos para coletar, cachecóis para desbloquear, cenas de história e trilha 8-bit própria. Funciona no teclado e na tela de toque.</p>
-        <p class="stack">JavaScript puro e canvas, sem engine. Antes de ir para os portais, cada versão passa por um robô que prova que todas as fases têm solução e por um teste que compara o jogo quadro a quadro com a versão anterior.</p>
-        <p class="links"><a href="https://spidermitobr-games.itch.io/tuko-factory-escape">Jogar no itch.io</a></p>
-      </div>
-    </article>
-  </section>
+  <p class="sub">Sites, tradução, correção de bugs e jogos.</p>
+  <p class="contact">Contato: <a href="mailto:contato.mateusdealmeidamotta@gmail.com">contato.mateusdealmeidamotta@gmail.com</a><br><span>O e-mail é meu principal meio de comunicação.</span></p>
 
   <section aria-labelledby="sites">
     <h2 id="sites">Sites</h2>
@@ -115,6 +99,24 @@
         <p class="links"><a href="correcoes/">Ver os casos</a></p>
       </div>
     </article>
+  </section>
+  <section aria-labelledby="jogos">
+    <h2 id="jogos">Jogos</h2>
+    <article class="site">
+      <a href="https://spidermitobr-games.itch.io/tuko-factory-escape" tabindex="-1" aria-hidden="true"><img src="portfolio/tuko.webp" width="1200" height="750" alt="" loading="lazy"></a>
+      <div>
+        <h3>TUKO I: Fuga da Fábrica</h3>
+        <p>Jogo de plataforma em que uma lagartixa gruda nas paredes e no teto para fugir da fábrica do Barão Fumaça. São 30 fases em 6 setores, com salas secretas, moscas e ovos para coletar, cachecóis para desbloquear, cenas de história e trilha 8-bit própria. Funciona no teclado e na tela de toque.</p>
+        <p class="stack">JavaScript puro e canvas, sem engine. Antes de ir para os portais, cada versão passa por um robô que prova que todas as fases têm solução e por um teste que compara o jogo quadro a quadro com a versão anterior.</p>
+        <p class="links"><a href="https://spidermitobr-games.itch.io/tuko-factory-escape">Jogar no itch.io</a></p>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="contato" class="cta">
+    <h2 id="contato">Contato</h2>
+    <p>Quer um site, uma tradução ou a correção de um bug? Escreva para <a href="mailto:contato.mateusdealmeidamotta@gmail.com">contato.mateusdealmeidamotta@gmail.com</a>.</p>
+    <p class="note">O e-mail é meu principal meio de comunicação: é por ele que respondo orçamentos e combino cada trabalho.</p>
   </section>
 </main>
 </body>
