@@ -1,4 +1,4 @@
-:HL["/torra-nove/_next/static/chunks/2rczsov9k8c46.css","style"]
+:HL["/torra-nove/_next/static/chunks/3yaxwv_5btlsa.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"x_16MSTjBsKWR0KpNjImJ","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"M2mYO5ihax5MozjmULThN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
