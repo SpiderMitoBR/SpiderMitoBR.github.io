@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Correções e modding · SpiderMitoBR</title>
+<meta name="description" content="Bugs de jogos e mods encontrados na causa raiz e corrigidos, muitas vezes sem código-fonte: crashes, perda de itens, multiplayer dessincronizado, som faltando e recursos novos.">
+<style>
+  :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9;--accent:#c2386f;--soft:#fbe7ef;--ok:#2f7a4f;--okbg:#e6f4ec}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito","Segoe UI",system-ui,sans-serif}
+  main{max-width:720px;margin:0 auto;padding:48px 16px 64px}
+  a{color:var(--accent);font-weight:700}
+  .back{display:inline-block;margin:0 0 24px;font-size:15px}
+  h1{font-size:30px;margin:0 0 4px;line-height:1.2}
+  p.sub{color:var(--muted);margin:0 0 32px}
+  section+section{margin-top:44px}
+  h2{font-size:20px;margin:0 0 6px}
+  p.lead{color:var(--muted);margin:0 0 14px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+  .stat b{display:block;font-size:26px;line-height:1.1}
+  .stat span{color:var(--muted);font-size:14px}
+  .case{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+  .case+.case{margin-top:12px}
+  .case h3{margin:0 0 2px;font-size:19px;line-height:1.3}
+  .case .where{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .case dl{margin:0;display:grid;grid-template-columns:92px 1fr;gap:6px 12px}
+  .case dt{font-size:13px;font-weight:800;color:var(--muted);padding-top:2px}
+  .case dd{margin:0}
+  .case dt.ok{color:var(--ok)}
+  .case dd.ok{background:var(--okbg);border-radius:10px;padding:4px 10px}
+  code{background:var(--soft);border-radius:6px;padding:0 5px;font-size:.92em}
+  ul.how{margin:0;padding-left:20px}
+  ul.how li+li{margin-top:6px}
+  .fine{color:var(--muted);font-size:14px;margin-top:32px}
+  @media (max-width:520px){
+    .stats{grid-template-columns:1fr}
+    .case dl{grid-template-columns:1fr;gap:2px}
+    .case dd{margin-bottom:8px}
+  }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="../">← Voltar</a>
+  <h1>Correções e modding</h1>
+  <p class="sub">Encontro a causa raiz de bugs em jogos e mods, muitas vezes sem ter o código-fonte, e corrijo sem quebrar o resto. Cada caso abaixo foi testado no jogo de verdade depois da correção.</p>
+
+  <div class="stats">
+    <div class="stat"><b>5</b><span>casos resolvidos e testados</span></div>
+    <div class="stat"><b>3</b><span>corrigidos direto no programa compilado, sem código-fonte</span></div>
+    <div class="stat"><b>1</b><span>modpack entregue funcionando 100%</span></div>
+  </div>
+
+  <section aria-labelledby="bugs">
+    <h2 id="bugs">Bugs corrigidos</h2>
+    <p class="lead">O formato é sempre o mesmo: o que o jogador via, por que acontecia, o que eu fiz e como foi comprovado.</p>
+
+    <article class="case">
+      <h3>Blocos “fantasma” no multiplayer</h3>
+      <p class="where">Mod de mineração em área, Minecraft 1.7.10, jogo em rede local</p>
+      <dl>
+        <dt>Sintoma</dt><dd>Quem minerava via os blocos sumirem. Os outros jogadores continuavam vendo os blocos, mas atravessavam eles.</dd>
+        <dt>Causa</dt><dd>Um erro de digitação no próprio mod: ao avisar os outros jogadores, ele calculava o pedaço do mapa usando a altura no lugar da profundidade. O servidor apagava o bloco, mas só o jogador que minerou ficava sabendo.</dd>
+        <dt>Correção</dt><dd>Achei o erro lendo o programa compilado do mod e corrigi uma única instrução, trocando a altura pela profundidade. O resto do mod, inclusive o recurso de desfazer a mineração, continua igual.</dd>
+        <dt class="ok">Prova</dt><dd class="ok">Testado em rede local com amigos: os blocos passaram a sumir para todo mundo.</dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <h3>Itens sumindo ao consultar uma receita</h3>
+      <p class="where">Mod de receitas (NEI), Minecraft 1.2.5</p>
+      <dl>
+        <dt>Sintoma</dt><dd>O jogador tinha 23 minérios, abria a tela de receitas para ver onde usá-los e, ao voltar, só restava 1. Sem erro e sem aviso.</dd>
+        <dt>Causa</dt><dd>A tela de receitas de fornalha alterava a pilha de itens real do inventário em vez de uma cópia.</dd>
+        <dt>Correção</dt><dd>Corrigi direto no programa compilado do mod, numa única classe, para trabalhar com uma cópia.</dd>
+        <dt class="ok">Prova</dt><dd class="ok">Validado no jogo: consultar receitas não mexe mais no inventário. O mesmo ajuste foi levado para um segundo modpack com o mesmo problema.</dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <h3>Sons do jogo faltando</h3>
+      <p class="where">Modpack de Minecraft 1.2.5 instalado pelo Technic Launcher</p>
+      <dl>
+        <dt>Sintoma</dt><dd>Os sons dos mods tocavam, mas alguns sons do jogo base (cachoeira, oceano, explosão, carrinho de mina) não.</dd>
+        <dt>Causa</dt><dd>Não era o modpack: o próprio launcher instala essa versão do jogo com 14 arquivos de som faltando. Confirmei comparando com outra instalação que funcionava.</dd>
+        <dt>Correção</dt><dd>Completei os 14 arquivos no pacote do modpack, para que todo jogador que instalar já receba o áudio completo.</dd>
+        <dt class="ok">Prova</dt><dd class="ok">Testado jogando: o áudio passou a tocar completo.</dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <h3>Tela branca ao abrir o jogo</h3>
+      <p class="where">Modpack de Minecraft 1.2.5 com Forge, montado à mão</p>
+      <dl>
+        <dt>Sintoma</dt><dd>Depois de adicionar um mod, o jogo abria numa tela branca e travava.</dd>
+        <dt>Causa</dt><dd>O registro do carregamento mostrou que faltava uma peça do mod que ele chama logo ao iniciar.</dd>
+        <dt>Correção</dt><dd>Incluí a peça que faltava no pacote do jogo, conferindo que ela não colidia com nada do Forge.</dd>
+        <dt class="ok">Prova</dt><dd class="ok">O registro do carregamento mostra o jogo iniciando até o fim.</dd>
+      </dl>
+    </article>
+
+  </section>
+
+  <section aria-labelledby="recursos">
+    <h2 id="recursos">Recurso novo em mod antigo</h2>
+    <p class="lead">Mod de aventura de 2012 para Minecraft 1.2.5, sem código-fonte.</p>
+
+    <article class="case">
+      <h3>Música de batalha dos chefões</h3>
+      <p class="where">O mod trazia as músicas, mas nenhuma tocava</p>
+      <dl>
+        <dt>Pedido</dt><dd>Tocar a música própria de cada chefão durante a luta e parar quando ele morre.</dd>
+        <dt>Causa</dt><dd>Eram duas: dois chefões não tinham a música ligada no código, e o jogo procurava os arquivos de música numa pasta fora da instalação, que estava vazia. Achei a segunda lendo o comando que o launcher usa para abrir o jogo.</dd>
+        <dt>Correção</dt><dd>Liguei a música nos dois chefões alterando só o trecho de código que cria cada um, direto no programa compilado, e coloquei as músicas na pasta onde o jogo realmente procura.</dd>
+        <dt class="ok">Prova</dt><dd class="ok">Testado no jogo contra os 5 chefões: a música toca em loop durante a luta e para quando o chefão morre.</dd>
+      </dl>
+    </article>
+  </section>
+
+  <section aria-labelledby="pack">
+    <h2 id="pack">Modpack montado do zero</h2>
+    <article class="case">
+      <h3>Modpack clássico de Minecraft 1.2.5 com 6 mods</h3>
+      <p class="where">Technic Launcher, era em que os mods precisavam ser mesclados à mão dentro do jogo</p>
+      <dl>
+        <dt>O quê</dt><dd>Mesclei 6 mods no pacote do jogo, ajustei o launcher para carregar tudo e juntei as correções acima: itens, som e música.</dd>
+        <dt class="ok">Prova</dt><dd class="ok">Funcionando 100%, confirmado jogando, e entregue pronto para publicação.</dd>
+      </dl>
+    </article>
+  </section>
+
+  <section aria-labelledby="como">
+    <h2 id="como">Como eu trabalho</h2>
+    <ul class="how">
+      <li><b>Prova antes de palpite.</b> A causa vem do registro de erro ou do próprio código, nunca de “deve ser isso”. Hipóteses que não se confirmam são descartadas.</li>
+      <li><b>Mudança mínima.</b> Altero só o necessário e confiro que o resto continua idêntico.</li>
+      <li><b>Sempre com volta.</b> Backup de tudo antes de mexer.</li>
+      <li><b>Teste de verdade.</b> Só considero resolvido depois de testar no jogo.</li>
+    </ul>
+  </section>
+
+  <p class="fine">Os jogos e mods citados pertencem aos seus autores. As correções foram feitas em instalações próprias.</p>
+</main>
+</body>
+</html>
