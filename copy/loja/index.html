@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copywriting: kit de loja virtual (demonstração)</title>
+<meta name="description" content="Kit de copy para loja virtual: descrições de produto, texto de categoria, página Sobre, trocas e devoluções e perguntas frequentes.">
+<meta name="robots" content="noindex">
+<style>
+  :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9;--accent:#c2386f;--soft:#fbe7ef;--sand:#f4ede4;--olive:#6b6a3a}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito","Segoe UI",system-ui,sans-serif}
+  main{max-width:760px;margin:0 auto;padding:48px 16px 64px}
+  a{color:var(--accent);font-weight:700}
+  .back{display:inline-block;margin:0 0 20px;font-size:15px}
+  h1{font-size:30px;margin:0 0 4px;line-height:1.2}
+  p.sub{color:var(--muted);margin:0 0 20px}
+  .demo{background:#fff;border:1px dashed var(--accent);border-radius:14px;padding:10px 14px;font-size:14px;color:var(--muted);margin:0 0 28px}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 36px}
+  nav.toc a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;color:var(--ink);text-decoration:none}
+  nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+  section{margin-top:52px}
+  h2{font-size:22px;margin:0 0 6px}
+  .why{color:var(--muted);font-size:15px;margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+  .brief dl{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;margin:0}
+  .brief dt{font-weight:800;font-size:14px;color:var(--muted)}
+  .brief dd{margin:0}
+  /* product page mock */
+  .pdp{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .pdp+.pdp{margin-top:18px}
+  .pdp .top{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:20px}
+  .ph{aspect-ratio:1/1;border-radius:14px;background:var(--sand);display:flex;align-items:flex-end;padding:10px;font-size:12px;color:#8b7d6b;font-weight:700}
+  .pdp h3{font-size:20px;margin:0 0 2px;line-height:1.25}
+  .price{font-weight:800;font-size:18px;margin:0 0 8px}
+  .price span{font-weight:600;font-size:14px;color:var(--muted)}
+  .pitch{margin:0}
+  .pdp .det{padding:0 20px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .pdp h4{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 6px}
+  .pdp ul{margin:0;padding-left:18px}
+  .pdp ul li+li{margin-top:3px}
+  .spec{width:100%;border-collapse:collapse;font-size:14px}
+  .spec td{padding:4px 0;border-top:1px dashed var(--line);vertical-align:top}
+  .spec td:first-child{color:var(--muted);width:42%;padding-right:8px}
+  .seo{border-top:1px solid var(--line);background:#fffafc;padding:12px 20px;font-size:13px;color:var(--muted)}
+  .seo b{color:var(--ink)}
+  /* tone compare */
+  .tones{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .tone{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+  .tone .label{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-radius:999px;padding:2px 10px;margin-bottom:10px}
+  .tone.a .label{background:var(--sand);color:#6d5a44}
+  .tone.b .label{background:var(--soft);color:var(--accent)}
+  .tone h3{font-size:18px;margin:0 0 8px}
+  .tone p{margin:0 0 8px}
+  /* pages */
+  .page h3{font-size:19px;margin:0 0 10px}
+  .page h4{font-size:16px;margin:18px 0 4px}
+  .page p{margin:0 0 10px}
+  .page ol,.page ul{margin:0 0 10px;padding-left:20px}
+  .page li+li{margin-top:4px}
+  .faq dt{font-weight:800;margin-top:12px}
+  .faq dd{margin:2px 0 0}
+  ul.reasons{padding-left:20px;margin:0}
+  ul.reasons li+li{margin-top:8px}
+  .fine{color:var(--muted);font-size:14px;margin-top:40px}
+  @media (max-width:560px){.pdp .top{grid-template-columns:1fr}.ph{max-width:180px}.pdp .det,.tones{grid-template-columns:1fr}.brief dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="../">← Kit de lançamento</a>
+  <h1>Copywriting: kit de loja virtual</h1>
+  <p class="sub">Os textos de que uma loja precisa para vender e passar confiança: descrições de produto, texto de categoria, página Sobre, trocas e devoluções e perguntas frequentes.</p>
+  <p class="demo"><b>Projeto de demonstração.</b> A loja Casa Juta e os produtos são fictícios. Nenhuma avaliação, número de vendas ou selo foi inventado.</p>
+
+  <nav class="toc" aria-label="Peças">
+    <a href="#briefing">Briefing</a><a href="#produtos">Descrições de produto</a><a href="#tom">Mesmo produto, dois tons</a><a href="#categoria">Categoria</a><a href="#sobre">Sobre</a><a href="#trocas">Trocas e devoluções</a><a href="#faq">Perguntas frequentes</a><a href="#porque">Por que assim</a>
+  </nav>
+
+  <section id="briefing" class="brief">
+    <h2>Briefing</h2>
+    <div class="card">
+      <dl>
+        <dt>Loja</dt><dd>Casa Juta, têxteis e utensílios de casa em fibras naturais</dd>
+        <dt>Cliente</dt><dd>Pessoas de 28 a 45 anos montando ou renovando a casa, que compram menos peças e querem que durem</dd>
+        <dt>Dúvidas que travam a compra</dt><dd>Medida certa, se encolhe, se desbota, como lavar e se a cor da foto é a cor real</dd>
+        <dt>Tom</dt><dd>Calmo e preciso. Fala de material e de uso, sem exagero e sem “o melhor do mercado”</dd>
+        <dt>Canal</dt><dd>Loja própria (Nuvemshop) e Instagram</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="produtos">
+    <h2>Descrições de produto</h2>
+    <p class="why">Cada descrição responde, nesta ordem, o que a pessoa quer saber antes de comprar: para que serve, como é ao toque, se cabe e como cuidar.</p>
+
+    <article class="pdp">
+      <div class="top">
+        <div class="ph">foto do produto</div>
+        <div>
+          <h3>Jogo de lençol percal 200 fios · casal · 4 peças</h3>
+          <p class="price">R$ 289 <span>ou 6x de R$ 48,17</span></p>
+          <p class="pitch">Percal é a trama do lençol de hotel: fresca, sequinha e com aquele toque firme que fica mais macio a cada lavagem. O lençol de baixo tem elástico em toda a volta e 30 cm de altura, então cobre colchão com pillow top sem soltar a ponta de madrugada.</p>
+        </div>
+      </div>
+      <div class="det">
+        <div>
+          <h4>Vem no jogo</h4>
+          <ul>
+            <li>Lençol com elástico, 138 × 188 × 30 cm</li>
+            <li>Lençol de cima, 220 × 240 cm</li>
+            <li>2 fronhas, 50 × 70 cm</li>
+          </ul>
+          <h4 style="margin-top:12px">Cuidados</h4>
+          <ul>
+            <li>Lave em água fria, no ciclo normal</li>
+            <li>Seque à sombra ou na secadora em temperatura baixa</li>
+            <li>Encolhimento de até 3% na primeira lavagem, já considerado nas medidas</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ficha técnica</h4>
+          <table class="spec">
+            <tr><td>Composição</td><td>100% algodão</td></tr>
+            <tr><td>Trama</td><td>Percal, 200 fios</td></tr>
+            <tr><td>Cores</td><td>Areia, branco e oliva</td></tr>
+            <tr><td>Colchão</td><td>Casal padrão (138 × 188 cm), até 30 cm de altura</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="seo"><b>Título SEO:</b> Jogo de Lençol Casal Percal 200 Fios 100% Algodão 4 Peças | Casa Juta · <b>Meta:</b> Percal 100% algodão, elástico em toda a volta e 30 cm de altura. Em areia, branco e oliva.</div>
+    </article>
+
+    <article class="pdp">
+      <div class="top">
+        <div class="ph">foto do produto</div>
+        <div>
+          <h3>Toalha de banho fio penteado 500 g/m² · 70 × 140 cm</h3>
+          <p class="price">R$ 89</p>
+          <p class="pitch">500 g/m² é o peso de uma toalha encorpada: seca o corpo inteiro sem ficar encharcada no meio do caminho. O fio penteado solta menos fiapo e mantém o felpudo depois de muitas lavagens.</p>
+        </div>
+      </div>
+      <div class="det">
+        <div>
+          <h4>Cuidados</h4>
+          <ul>
+            <li>Lave antes do primeiro uso para a absorção chegar ao máximo</li>
+            <li>Use pouco amaciante, porque ele cria uma película que reduz a absorção</li>
+            <li>Lave as cores escuras separadas nas primeiras 3 lavagens</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ficha técnica</h4>
+          <table class="spec">
+            <tr><td>Composição</td><td>100% algodão, fio penteado</td></tr>
+            <tr><td>Gramatura</td><td>500 g/m²</td></tr>
+            <tr><td>Medida</td><td>70 × 140 cm</td></tr>
+            <tr><td>Cores</td><td>Areia, grafite e terracota</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="seo"><b>Título SEO:</b> Toalha de Banho Fio Penteado 500g/m² 70x140 cm Algodão | Casa Juta</div>
+    </article>
+
+    <article class="pdp">
+      <div class="top">
+        <div class="ph">foto do produto</div>
+        <div>
+          <h3>Manta de tricô em algodão reciclado · 130 × 180 cm</h3>
+          <p class="price">R$ 219 <span>ou 4x de R$ 54,75</span></p>
+          <p class="pitch">Do tamanho certo para cobrir duas pessoas no sofá ou dobrar no pé da cama de casal. O fio é feito de retalhos de algodão da indústria de confecção, que voltam a ser fiados em vez de ir para o lixo.</p>
+        </div>
+      </div>
+      <div class="det">
+        <div>
+          <h4>Cuidados</h4>
+          <ul>
+            <li>Lave à mão ou no ciclo delicado, em água fria</li>
+            <li>Seque deitada, na sombra, para não deformar o tricô</li>
+            <li>Leve variação de tom entre lotes, própria do fio reciclado</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ficha técnica</h4>
+          <table class="spec">
+            <tr><td>Composição</td><td>80% algodão reciclado, 20% poliéster reciclado</td></tr>
+            <tr><td>Medida</td><td>130 × 180 cm</td></tr>
+            <tr><td>Peso</td><td>1,1 kg</td></tr>
+            <tr><td>Cores</td><td>Cru e mostarda</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="seo"><b>Título SEO:</b> Manta de Tricô para Sofá 130x180 cm Algodão Reciclado | Casa Juta</div>
+    </article>
+
+    <article class="pdp">
+      <div class="top">
+        <div class="ph">foto do produto</div>
+        <div>
+          <h3>Avental de linho misto com bolso frontal</h3>
+          <p class="price">R$ 119</p>
+          <p class="pitch">A alça do pescoço tem regulagem por argola, então o avental serve em quem tem 1,55 m e em quem tem 1,90 m. O bolso da frente é dividido em dois e cabe o celular e o termômetro de cozinha.</p>
+        </div>
+      </div>
+      <div class="det">
+        <div>
+          <h4>Cuidados</h4>
+          <ul>
+            <li>Lave na máquina, em água fria</li>
+            <li>O linho amassa, e esse é o charme dele. Se preferir liso, passe ainda úmido</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ficha técnica</h4>
+          <table class="spec">
+            <tr><td>Composição</td><td>55% linho, 45% algodão</td></tr>
+            <tr><td>Medida</td><td>70 cm de largura × 85 cm de altura</td></tr>
+            <tr><td>Alças</td><td>Pescoço regulável e cintura de 90 cm por lado</td></tr>
+            <tr><td>Cores</td><td>Oliva e linho natural</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="seo"><b>Título SEO:</b> Avental de Cozinha Linho com Bolso e Alça Regulável | Casa Juta</div>
+    </article>
+
+    <article class="pdp">
+      <div class="top">
+        <div class="ph">foto do produto</div>
+        <div>
+          <h3>Jogo americano de juta · kit com 4</h3>
+          <p class="price">R$ 99</p>
+          <p class="pitch">Cada peça tem 45 × 33 cm, o espaço de um prato raso, copo e talheres, sem invadir o lugar do lado numa mesa de 4 lugares. A juta é trançada à mão e tem a borda costurada, então não desfia nas pontas.</p>
+        </div>
+      </div>
+      <div class="det">
+        <div>
+          <h4>Cuidados</h4>
+          <ul>
+            <li>Limpe com pano úmido e sabão neutro</li>
+            <li>Não vai à máquina. Água em excesso deforma a trama</li>
+            <li>Seque na horizontal, longe do sol direto</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ficha técnica</h4>
+          <table class="spec">
+            <tr><td>Composição</td><td>100% juta, borda em algodão</td></tr>
+            <tr><td>Medida</td><td>45 × 33 cm cada</td></tr>
+            <tr><td>Quantidade</td><td>4 peças</td></tr>
+            <tr><td>Cor</td><td>Juta natural</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="seo"><b>Título SEO:</b> Jogo Americano de Juta Kit 4 Peças 45x33 cm Trançado à Mão | Casa Juta</div>
+    </article>
+  </section>
+
+  <section id="tom">
+    <h2>Mesmo produto, dois tons</h2>
+    <p class="why">O texto acompanha a voz da marca. A mesma toalha, escrita para duas lojas diferentes:</p>
+    <div class="tones">
+      <div class="tone a">
+        <span class="label">Calmo e preciso</span>
+        <h3>Toalha de banho 500 g/m²</h3>
+        <p>500 g/m² é o peso de uma toalha encorpada: seca o corpo inteiro sem ficar encharcada no meio do caminho. O fio penteado solta menos fiapo e mantém o felpudo depois de muitas lavagens.</p>
+      </div>
+      <div class="tone b">
+        <span class="label">Jovem e direto</span>
+        <h3>A toalha que dá conta do cabelo longo</h3>
+        <p>Sabe quando a toalha desiste na metade do banho? Essa aqui tem 500 g/m², o que quer dizer muito algodão por centímetro. Seca você, seca o cabelo e ainda sobra toalha. E quase não solta fiapo, porque o fio é penteado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="categoria">
+    <h2>Texto de categoria</h2>
+    <p class="why">Curto, no topo da página de categoria. Ajuda o cliente a escolher e ajuda o Google a entender a página.</p>
+    <div class="card page">
+      <h3>Roupa de cama</h3>
+      <p>Lençóis, fronhas e capas de edredom em algodão e linho. Percal é fresco e firme, bom para quem sente calor à noite. Malha é macia e elástica, boa para quem gosta de lençol que abraça. Todas as medidas da página já consideram o encolhimento da primeira lavagem.</p>
+      <p style="color:var(--muted);font-size:14px;margin:0">Não sabe a altura do seu colchão? Meça do chão até o topo, sem o lençol, e escolha um elástico de pelo menos 5 cm a mais.</p>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Página Sobre</h2>
+    <p class="why">Conta de onde a marca vem e o que ela promete, em fatos que o cliente pode conferir no próprio produto.</p>
+    <div class="card page">
+      <h3>Sobre a Casa Juta</h3>
+      <p>A Casa Juta começou numa sala de 20 m², com três rolos de linho e uma máquina de costura reta. A ideia era fazer peças de casa para usar todo dia por muitos anos, e não para trocar na próxima estação.</p>
+      <p>Hoje trabalhamos com fibras naturais (algodão, linho e juta) e com fio reciclado sempre que o resultado é tão bom quanto o fio novo. Em toda página de produto você encontra a composição exata, a medida depois da primeira lavagem e como cuidar da peça.</p>
+      <p>Se uma peça não ficou como você esperava, a gente resolve. A política de trocas está logo abaixo, escrita para ser entendida na primeira leitura.</p>
+      <p class="proof" style="background:var(--soft);border-radius:10px;padding:8px 12px;font-size:14px;font-family:ui-monospace,Consolas,monospace">[PROVA: foto do ateliê, nome de quem fundou e, se existir, número de clientes ou ano de fundação]</p>
+    </div>
+  </section>
+
+  <section id="trocas">
+    <h2>Trocas e devoluções</h2>
+    <p class="why">É o texto que mais evita mensagem no WhatsApp. Prazos claros, passo a passo e quem paga o frete em cada caso.</p>
+    <div class="card page">
+      <h3>Trocas e devoluções</h3>
+      <h4>Desistiu da compra</h4>
+      <p>Você tem 7 dias corridos a partir do recebimento para devolver qualquer peça, sem precisar explicar o motivo. Devolvemos o valor total, frete incluído, no mesmo meio de pagamento.</p>
+      <h4>Quer outro tamanho ou outra cor</h4>
+      <p>Pode trocar em até 30 dias após o recebimento, com a peça sem uso e com a etiqueta. A primeira troca tem frete por nossa conta.</p>
+      <h4>A peça veio com defeito</h4>
+      <p>Avise em até 90 dias após o recebimento, com uma foto do defeito. Trocamos a peça ou devolvemos o valor, e o frete é sempre por nossa conta.</p>
+      <h4>Como pedir</h4>
+      <ol>
+        <li>Acesse “Meus pedidos” e clique em “Trocar ou devolver”.</li>
+        <li>Escolha o motivo e envie a foto, se for defeito.</li>
+        <li>Você recebe o código de postagem por e-mail em até 1 dia útil.</li>
+        <li>Leve o pacote a uma agência dos Correios.</li>
+      </ol>
+      <p>Assim que a peça chega, conferimos em até 3 dias úteis e liberamos a troca ou o reembolso.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Perguntas frequentes</h2>
+    <p class="why">As dúvidas que aparecem antes da compra, respondidas no tom da loja.</p>
+    <div class="card page">
+      <dl class="faq">
+        <dt>A cor da foto é a cor real?</dt><dd>As fotos são feitas com luz natural, mas cada tela mostra a cor de um jeito. Na página de cada produto há uma foto da peça ao lado de um papel branco para você ter referência.</dd>
+        <dt>As peças encolhem?</dt><dd>O algodão encolhe até 3% na primeira lavagem. As medidas da página já são as medidas depois desse encolhimento.</dd>
+        <dt>Quanto tempo leva para chegar?</dt><dd>Enviamos em até 2 dias úteis após a confirmação do pagamento. O prazo dos Correios para o seu CEP aparece no carrinho, antes de você pagar.</dd>
+        <dt>Vocês embalam para presente?</dt><dd>Sim, por R$ 12. A embalagem é de papel kraft com fita de algodão, e a nota fiscal vai em envelope separado, sem o valor à mostra.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="porque">
+    <h2>Por que foi escrito assim</h2>
+    <div class="card">
+      <ul class="reasons">
+        <li><b>Medida e cuidado antes do adjetivo.</b> As dúvidas que mais geram devolução em têxteis são tamanho, encolhimento e cor. Cada descrição responde isso no próprio texto.</li>
+        <li><b>Benefício traduzido em cena.</b> “30 cm de altura” vira “não solta a ponta de madrugada”. “45 × 33 cm” vira “sem invadir o lugar do lado”.</li>
+        <li><b>Título pensado para busca.</b> O título SEO usa as palavras que as pessoas digitam (casal, 200 fios, 70x140), e o nome na página fica mais limpo.</li>
+        <li><b>Trocas sem letra miúda.</b> Prazos legais (7 dias de arrependimento, 90 dias para defeito) escritos como resposta a uma situação, não como cláusula.</li>
+        <li><b>Nenhuma prova inventada.</b> Sem avaliações, números de venda ou selos falsos. Onde a loja real teria prova, o lugar está marcado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="fine">Peças escritas para demonstração. Marca, produtos, preços e prazos são fictícios.</p>
+</main>
+</body>
+</html>
