@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copywriting: kit de lançamento (demonstração)</title>
+<meta name="description" content="Kit de copy para o lançamento de um programa de consultoria: landing page, post, carrossel, roteiro de reel e sequência de e-mails.">
+<meta name="robots" content="noindex">
+<style>
+  :root{--bg:#fff4f8;--ink:#3b2a3f;--muted:#6f5f74;--line:#f0dfe9;--accent:#c2386f;--soft:#fbe7ef;--dark:#2b1f2e}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito","Segoe UI",system-ui,sans-serif}
+  main{max-width:760px;margin:0 auto;padding:48px 16px 64px}
+  h1{font-size:30px;margin:0 0 4px;line-height:1.2}
+  p.sub{color:var(--muted);margin:0 0 20px}
+  .demo{background:#fff;border:1px dashed var(--accent);border-radius:14px;padding:10px 14px;font-size:14px;color:var(--muted);margin:0 0 28px}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 36px}
+  nav.toc a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;color:var(--ink);text-decoration:none;font-weight:700}
+  nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+  section{margin-top:52px}
+  h2{font-size:22px;margin:0 0 6px}
+  .why{color:var(--muted);font-size:15px;margin:0 0 16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+  .brief dl{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;margin:0}
+  .brief dt{font-weight:800;font-size:14px;color:var(--muted)}
+  .brief dd{margin:0}
+  /* landing page mock */
+  .lp{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .lp .hero{background:var(--dark);color:#fff;padding:32px 24px}
+  .lp .hero h3{font-size:28px;line-height:1.2;margin:0 0 12px}
+  .lp .hero p{margin:0 0 18px;color:#e9dcea}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border-radius:12px;padding:10px 18px;font-weight:800}
+  .lp .micro{display:block;margin-top:8px;font-size:13px;color:#cdbcd0}
+  .lp .block{padding:22px 24px;border-top:1px solid var(--line)}
+  .lp .block h4{font-size:19px;margin:0 0 8px}
+  .lp .block p{margin:0 0 10px}
+  .lp .block ul{margin:0;padding-left:20px}
+  .lp .step b{color:var(--accent)}
+  .proof{background:var(--soft);border-radius:10px;padding:8px 12px;font-size:14px;font-family:ui-monospace,Consolas,monospace}
+  .faq dt{font-weight:800;margin-top:10px}
+  .faq dd{margin:2px 0 0}
+  .alt{margin-top:14px}
+  .alt li+li{margin-top:6px}
+  .seo{font-size:14px;color:var(--muted);margin-top:14px}
+  /* post + carousel */
+  .square{aspect-ratio:1/1;border-radius:16px;display:flex;flex-direction:column;justify-content:center;padding:22px;font-weight:800;line-height:1.25}
+  .post-art{background:var(--dark);color:#fff;font-size:26px;max-width:340px}
+  .post-art small{display:block;margin-top:14px;font-size:13px;color:var(--accent);font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+  .caption{margin-top:14px;white-space:pre-line}
+  .carousel{display:grid;grid-auto-flow:column;grid-auto-columns:230px;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+  .carousel .square{scroll-snap-align:start;background:#fff;border:1px solid var(--line);font-size:17px;font-weight:700;justify-content:flex-start;position:relative}
+  .carousel .square.cover{background:var(--dark);color:#fff;font-size:22px;font-weight:800;justify-content:center}
+  .carousel .square.last{background:var(--accent);color:#fff}
+  .carousel .n{position:absolute;bottom:12px;right:14px;font-size:12px;color:var(--muted);font-weight:800}
+  .carousel .cover .n,.carousel .last .n{color:#f3d6e2}
+  .carousel em{font-style:normal;color:var(--accent)}
+  .hint{font-size:13px;color:var(--muted);margin-top:4px}
+  /* reel */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;font-size:15px}
+  th,td{text-align:left;vertical-align:top;padding:10px 12px;border-top:1px solid var(--line)}
+  th{background:var(--soft);border-top:0;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  td:first-child{white-space:nowrap;font-weight:800;color:var(--accent)}
+  td.screen{color:var(--muted);font-size:14px}
+  /* emails */
+  .mail{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .mail+.mail{margin-top:14px}
+  .mail .head{background:var(--soft);padding:12px 16px;font-size:14px}
+  .mail .head b{display:block;font-size:16px}
+  .mail .head span{color:var(--muted)}
+  .mail .tag{float:right;font-size:12px;font-weight:800;color:var(--accent)}
+  .mail .body{padding:16px}
+  .mail .body p{margin:0 0 10px}
+  .mail .body .btn{margin:4px 0 12px}
+  ul.reasons{padding-left:20px;margin:0}
+  ul.reasons li+li{margin-top:8px}
+  .fine{color:var(--muted);font-size:14px;margin-top:40px}
+  @media (max-width:520px){.brief dl{grid-template-columns:1fr}.lp .hero h3{font-size:23px}.post-art{font-size:22px}td.screen{font-size:13px}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Copywriting: kit de lançamento</h1>
+  <p class="sub">Todas as peças de copy de um lançamento de consultoria: landing page, post, carrossel, roteiro de reel e sequência de e-mails, escritas a partir de um único briefing.</p>
+  <p class="demo"><b>Projeto de demonstração.</b> A marca e a consultora são fictícias. Não há números de resultado nem depoimentos inventados: onde a peça real precisaria de prova, o lugar está marcado, do jeito que é entregue a um cliente.</p>
+
+  <nav class="toc" aria-label="Peças">
+    <a href="#briefing">Briefing</a><a href="#lp">Landing page</a><a href="#post">Post</a><a href="#carrossel">Carrossel</a><a href="#reel">Reel</a><a href="#emails">E-mails</a><a href="#porque">Por que assim</a>
+  </nav>
+
+  <section id="briefing" class="brief">
+    <h2>Briefing</h2>
+    <div class="card">
+      <dl>
+        <dt>Oferta</dt><dd>Agenda Livre, programa em grupo de 8 semanas</dd>
+        <dt>Público</dt><dd>Donos de empresas de serviço (clínica, escritório, oficina, agência, escola) com 3 a 15 funcionários, em que tudo passa pelo dono</dd>
+        <dt>Promessa</dt><dd>A equipe resolve o dia a dia com regras escritas e o dono consegue se ausentar</dd>
+        <dt>Entregáveis</dt><dd>12 regras de decisão, reunião semanal de 20 min e painel semanal em planilha</dd>
+        <dt>Turma</dt><dd>40 vagas · inscrições de 18 a 23/11 · início em 24/11 · encontros às terças, 19h</dd>
+        <dt>Preço</dt><dd>R$ 1.997 ou 12x de R$ 199 · garantia de 7 dias após o primeiro encontro</dd>
+        <dt>Tom</dt><dd>Direto e concreto, de quem já viveu operação. Sem promessa de faturamento</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="lp">
+    <h2>Landing page</h2>
+    <p class="why">Uma página, uma oferta, um botão. A dor aparece como cena antes de qualquer argumento.</p>
+    <div class="lp">
+      <div class="hero">
+        <h3>Sua equipe resolve o dia a dia. Você tira 7 dias de folga em fevereiro.</h3>
+        <p>Agenda Livre é um programa em grupo de 8 semanas para donos de empresas de serviço com até 15 funcionários. Você sai com as 12 decisões que mais te interrompem escritas como regra, uma reunião semanal de 20 minutos e um painel que mostra como foi a semana sem você precisar perguntar.</p>
+        <span class="btn">Garantir minha vaga na turma de novembro</span>
+        <span class="micro">40 vagas · começa em 24/11 · 12x de R$ 199</span>
+      </div>
+      <div class="block">
+        <h4>Um dia normal na sua empresa</h4>
+        <p>8h12, o primeiro WhatsApp: o cliente quer mudar o horário e ninguém sabe se pode. 10h40, a nota do fornecedor veio com valor diferente. 15h, alguém pergunta quanto de desconto pode dar.</p>
+        <p>Cada pergunta leva dois minutos para responder e meia hora para você voltar ao que estava fazendo. A equipe pergunta porque ninguém escreveu como decidir. A regra está na sua cabeça, e enquanto ela estiver só lá, a empresa anda na velocidade do seu celular.</p>
+      </div>
+      <div class="block">
+        <h4>Como funcionam as 8 semanas</h4>
+        <p class="step"><b>Semanas 1 e 2 · Mapa das interrupções.</b> Durante 5 dias úteis você anota cada pergunta que recebe da equipe. No encontro, separamos as 12 que mais se repetem.</p>
+        <p class="step"><b>Semanas 3 a 6 · Regras escritas.</b> Para cada uma das 12, você escreve em uma página quem decide, até que limite, o que fazer acima dele e quem avisar depois. A Renata revisa duas das suas regras individualmente.</p>
+        <p class="step"><b>Semanas 7 e 8 · Teste de ausência.</b> Você passa dois dias úteis fora da operação, com o celular no silencioso. O painel mostra o que travou, e no último encontro você ajusta as regras que falharam.</p>
+      </div>
+      <div class="block">
+        <h4>O que está incluído</h4>
+        <ul>
+          <li>8 encontros ao vivo de 90 minutos, às terças, às 19h, todos gravados</li>
+          <li>Modelo de regra de decisão em uma página</li>
+          <li>Roteiro da reunião semanal de 20 minutos</li>
+          <li>Painel semanal em planilha, já montado, com 5 indicadores</li>
+          <li>Revisão individual de 2 regras pela Renata</li>
+          <li>Grupo da turma para dúvidas durante as 8 semanas</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Para quem é</h4>
+        <p>Donos de empresas de serviço com 3 a 15 funcionários e faturamento estável, que sabem vender e travam no próprio tempo. Se a empresa ainda está buscando os primeiros clientes, comece pelas vendas: o programa resolve um problema que aparece depois.</p>
+      </div>
+      <div class="block">
+        <h4>Quem conduz</h4>
+        <p>Renata Albuquerque passou 11 anos como gerente de operações em redes de clínicas, escrevendo as regras que permitiam abrir uma unidade nova sem ela estar lá todo dia. Hoje faz o mesmo trabalho com donos de pequenas empresas.</p>
+        <p class="proof">[PROVA: número de empresas atendidas e 1–2 depoimentos reais com nome, empresa e o que mudou]</p>
+      </div>
+      <div class="block">
+        <h4>Investimento</h4>
+        <p>R$ 1.997 à vista ou 12x de R$ 199 no cartão.</p>
+        <p>Você tem 7 dias depois do primeiro encontro para pedir o dinheiro de volta, por qualquer motivo. Basta responder ao e-mail de boas-vindas.</p>
+      </div>
+      <div class="block">
+        <h4>Perguntas frequentes</h4>
+        <dl class="faq">
+          <dt>E se eu não puder estar ao vivo na terça?</dt><dd>A gravação fica disponível em até 2 horas, e você pode deixar suas dúvidas no grupo antes do encontro.</dd>
+          <dt>Minha equipe tem 3 pessoas. Serve?</dt><dd>Serve. Com equipe pequena as regras costumam ficar prontas antes da semana 6, e sobra tempo para o teste de ausência.</dd>
+          <dt>Preciso de algum sistema?</dt><dd>Uma conta do Google basta. O painel é entregue pronto em planilha.</dd>
+          <dt>Quanto tempo por semana?</dt><dd>O encontro de 90 minutos, mais cerca de 1 hora para escrever as regras.</dd>
+        </dl>
+      </div>
+      <div class="block">
+        <h4>A turma começa em 24 de novembro, com 40 vagas.</h4>
+        <p>As inscrições fecham no dia 23, às 23h59.</p>
+        <span class="btn">Quero entrar na turma de novembro</span>
+      </div>
+    </div>
+    <div class="card alt">
+      <b>Headlines alternativas</b>
+      <ul>
+        <li>“Quantas vezes por dia te perguntam algo que só você sabe responder?”: abre pela dor, para tráfego frio de anúncio.</li>
+        <li>“12 regras escritas e sua empresa para de depender do seu celular.”: mais concreta no entregável, para quem já conhece a consultora.</li>
+      </ul>
+      <p class="seo"><b>SEO.</b> Título: “Agenda Livre: programa de 8 semanas para sua equipe decidir sem você”. Descrição: “Para donos de empresas de serviço com até 15 funcionários. 12 regras escritas, reunião de 20 minutos e painel semanal. Turma começa em 24/11.”</p>
+    </div>
+  </section>
+
+  <section id="post">
+    <h2>Post estático</h2>
+    <p class="why">Uma frase que o dono reconhece no próprio dia, e uma legenda que convida para a live.</p>
+    <div class="card">
+      <div class="square post-art">8h12. Primeira pergunta do dia que só você sabe responder.<small>Agenda Livre</small></div>
+      <p class="caption">Anota hoje quantas vezes isso acontece.
+
+Cada pergunta leva dois minutos para responder e meia hora até você voltar ao que estava fazendo. Quase todas se repetem toda semana, e tudo que se repete pode virar regra escrita.
+
+Terça, às 19h, mostro ao vivo como transformar as perguntas mais repetidas em regras que a equipe segue sozinha. Link na bio para receber o lembrete.</p>
+    </div>
+  </section>
+
+  <section id="carrossel">
+    <h2>Carrossel (8 telas)</h2>
+    <p class="why">Ensina o método de verdade com um exemplo concreto. Quem testa e vê funcionar confia na oferta.</p>
+    <div class="carousel" tabindex="0" aria-label="Telas do carrossel">
+      <div class="square cover">Sua equipe faz a mesma pergunta toda semana? Escreva a resposta uma vez.<span class="n">1/8</span></div>
+      <div class="square">Exemplo de uma oficina mecânica: “Posso dar desconto pro cliente?” Essa pergunta chegava ao dono 4 vezes por semana.<span class="n">2/8</span></div>
+      <div class="square">Uma regra de decisão cabe em uma página e tem 4 campos: quem decide, até que limite, o que fazer acima do limite e quem avisar depois.<span class="n">3/8</span></div>
+      <div class="square"><span><em>Quem decide:</em> o atendente do balcão.<br><br><em>Até que limite:</em> 10% em serviços acima de R$ 300.</span><span class="n">4/8</span></div>
+      <div class="square"><span><em>Acima do limite:</em> o atendente oferece a revisão gratuita no lugar do desconto. Se o cliente insistir, manda o valor por mensagem para o dono.</span><span class="n">5/8</span></div>
+      <div class="square"><span><em>Quem avisar depois:</em> todo desconto vai para o caderno do balcão, e o dono confere na sexta.</span><span class="n">6/8</span></div>
+      <div class="square">Use a regra por 2 semanas. Se a pergunta continuar chegando, a regra tem um buraco, e a próxima pergunta mostra onde ele está.<span class="n">7/8</span></div>
+      <div class="square last">Salva este post e escreve a sua primeira regra hoje. No Agenda Livre escrevemos 12 delas juntos. Inscrições a partir de 18/11.<span class="n">8/8</span></div>
+    </div>
+    <p class="hint">Arraste para o lado para ver todas as telas.</p>
+    <div class="card" style="margin-top:12px"><b>Legenda:</b> Comece pela pergunta que mais te irrita. Ela costuma ser a que mais se repete.</div>
+  </section>
+
+  <section id="reel">
+    <h2>Roteiro de reel (cerca de 35 s)</h2>
+    <p class="why">O gancho é uma tarefa para amanhã, não uma promessa. O vídeo entrega o método inteiro e só pede a live no fim.</p>
+    <table>
+      <thead><tr><th>Tempo</th><th>Fala</th><th>Tela / imagem</th></tr></thead>
+      <tbody>
+        <tr><td>0–3 s</td><td>“Faz esse teste amanhã: anota cada pergunta da equipe que só você sabe responder.”</td><td class="screen">Celular vibrando na mesa. Texto: “O teste das perguntas”</td></tr>
+        <tr><td>3–12 s</td><td>“No fim do dia, separa as que se repetiram. Elas custam mais caro, porque voltam semana que vem.”</td><td class="screen">Mão riscando uma lista no caderno</td></tr>
+        <tr><td>12–25 s</td><td>“Pega a mais repetida e escreve numa página: quem decide, até que limite, o que fazer acima dele e quem avisar depois.”</td><td class="screen">Os 4 campos aparecendo um a um</td></tr>
+        <tr><td>25–31 s</td><td>“Cola do lado do computador da equipe. Essa pergunta para de chegar.”</td><td class="screen">Folha presa no monitor da recepção</td></tr>
+        <tr><td>31–35 s</td><td>“Terça, 19h, faço uma live com as 12 regras que mais tiram o dono da operação. Link na bio.”</td><td class="screen">Consultora olhando para a câmera. Texto: “Live terça 19h”</td></tr>
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:12px"><b>Legenda:</b> Qual pergunta você recebeu mais vezes essa semana? Comenta aqui que eu respondo com a regra.</div>
+  </section>
+
+  <section id="emails">
+    <h2>Sequência de e-mails (carrinho aberto)</h2>
+    <p class="why">Três e-mails, cada um com um trabalho: anunciar, derrubar a principal objeção e fechar.</p>
+
+    <article class="mail">
+      <div class="head"><span class="tag">1 · abertura · 18/11, 8h</span><b>As inscrições do Agenda Livre abriram</b><span>40 vagas, começa dia 24.</span></div>
+      <div class="body">
+        <p>Oi, [nome].</p>
+        <p>Na live de terça você viu o modelo de regra de uma página. No Agenda Livre a gente escreve 12 delas juntos, uma para cada pergunta que mais te tira do que você deveria estar fazendo.</p>
+        <p>São 8 semanas, com encontros toda terça às 19h. Na semana 7 você faz o teste de ausência: dois dias úteis fora da operação, com o celular no silencioso, olhando só o painel no fim do dia.</p>
+        <p>A turma tem 40 vagas e começa em 24/11. O valor é R$ 1.997 ou 12x de R$ 199, com 7 dias de garantia depois do primeiro encontro.</p>
+        <span class="btn">Quero minha vaga</span>
+        <p>Renata</p>
+      </div>
+    </article>
+
+    <article class="mail">
+      <div class="head"><span class="tag">2 · objeção · 20/11, 12h</span><b>“Minha equipe não está pronta pra decidir”</b><span>Ouvi isso de quase todo dono com quem trabalhei.</span></div>
+      <div class="body">
+        <p>Oi, [nome].</p>
+        <p>Quando um dono me diz que a equipe não está pronta, eu pergunto: alguém já escreveu para eles como você decide?</p>
+        <p>Quase sempre a resposta é não. A recepcionista que pergunta se pode remarcar sabe remarcar. O que falta é saber até onde ela pode ir sem te chamar, e isso ninguém consegue adivinhar.</p>
+        <p>Por isso o programa começa com o mapa das perguntas e só depois parte para a delegação. Você escolhe as 12 regras, define os limites, e a equipe testa com você ainda por perto. Quando chega o teste de ausência, na semana 7, as regras já foram usadas por um mês.</p>
+        <p>As inscrições fecham no domingo.</p>
+        <span class="btn">Ver o programa completo</span>
+        <p>Renata</p>
+      </div>
+    </article>
+
+    <article class="mail">
+      <div class="head"><span class="tag">3 · último dia · 23/11, 18h</span><b>Fecha hoje às 23h59</b><span>A próxima turma só em março.</span></div>
+      <div class="body">
+        <p>Oi, [nome].</p>
+        <p>As inscrições do Agenda Livre fecham hoje à meia-noite. A próxima turma começa em março.</p>
+        <p>Se você entrar agora, em fevereiro já terá passado pelo teste de ausência, com as 12 regras escritas e testadas pela equipe.</p>
+        <p>Se depois do primeiro encontro você achar que não é para você, tem 7 dias para pedir o dinheiro de volta respondendo a qualquer e-mail meu.</p>
+        <span class="btn">Entrar na turma</span>
+        <p>Renata</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="porque">
+    <h2>Por que foi escrito assim</h2>
+    <div class="card">
+      <ul class="reasons">
+        <li><b>Promessa que dá para conferir.</b> “7 dias de folga em fevereiro” e “12 regras escritas” podem ser verificados. “Transforme sua empresa” não pode.</li>
+        <li><b>Cena antes do argumento.</b> O dia com horários (8h12, 10h40, 15h) faz o dono se reconhecer antes de ler qualquer coisa sobre o programa.</li>
+        <li><b>O conteúdo gratuito ensina de verdade.</b> O carrossel e o reel entregam o método da regra em uma página. Quem testa e vê funcionar chega à oferta confiando.</li>
+        <li><b>Cada e-mail tem um único trabalho.</b> Anunciar, responder à objeção mais comum e fechar com prazo real.</li>
+        <li><b>Nenhuma prova inventada.</b> Sem depoimento ou número real, a peça marca o lugar em vez de preencher com algo falso.</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="fine">Peças escritas para demonstração. Nomes, marca, datas e preços são fictícios.</p>
+</main>
+</body>
+</html>
