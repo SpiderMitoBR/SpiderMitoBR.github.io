@@ -1,0 +1,250 @@
+{
+  "name": "Atendente WhatsApp – Clínica Peroba",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp-peroba",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook WhatsApp",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        200
+      ],
+      "webhookId": "{{WEBHOOK_ID}}"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrai a primeira mensagem de texto do payload da WhatsApp Cloud API.\nconst valor = $input.first().json.body?.entry?.[0]?.changes?.[0]?.value;\nconst msg = valor?.messages?.[0];\nif (!msg || msg.type !== 'text') return []; // status de entrega, mídia etc.: ignora\nreturn [{ json: { telefone: msg.from, texto: msg.text.body, mensagemId: msg.id } }];"
+      },
+      "name": "Extrair mensagem",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "{{URL_DO_CEREBRO}}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ telefone: $json.telefone, texto: $json.texto }) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "name": "Cérebro (API do servidor)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "transferir",
+              "leftValue": "={{ $json.transferir }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Transferir?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "{{URL_DO_CHATWOOT}}/api/v1/accounts/{{ID_DA_CONTA}}/conversations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api_access_token",
+              "value": "{{TOKEN_CHATWOOT}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ source_id: $('Extrair mensagem').item.json.telefone, inbox_id: Number($env.CHATWOOT_INBOX_ID), additional_attributes: { motivo: $json.transferir } }) }}",
+        "options": {}
+      },
+      "name": "Avisar recepção (Chatwoot)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v21.0/{{PHONE_NUMBER_ID}}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{SEU_TOKEN}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ messaging_product: 'whatsapp', to: $('Extrair mensagem').item.json.telefone, type: 'text', text: { body: ($json.textos || []).join('\n\n') } }) }}",
+        "options": {}
+      },
+      "name": "Enviar WhatsApp (Graph API)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true }) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "name": "Responder ao webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Fluxo de demonstração. Troque os valores entre chaves duplas ({{...}}) pelos seus: token da WhatsApp Cloud API, PHONE_NUMBER_ID, URL do cérebro e dados do Chatwoot. Nunca salve tokens reais neste arquivo: use as credenciais do n8n.\n\nO nó 'Cérebro' espera uma API que devolva { textos: string[], transferir?: 'pedido' | 'confianca_baixa' | 'urgencia' } e que mantenha a agenda no servidor. O Worker deste repositório é só da demonstração no navegador (a agenda dele vive no navegador), então em produção a agenda precisa ir para um banco.",
+        "height": 220,
+        "width": 420
+      },
+      "name": "Leia-me",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -120
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "Extrair mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrair mensagem": {
+      "main": [
+        [
+          {
+            "node": "Cérebro (API do servidor)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cérebro (API do servidor)": {
+      "main": [
+        [
+          {
+            "node": "Transferir?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transferir?": {
+      "main": [
+        [
+          {
+            "node": "Avisar recepção (Chatwoot)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar WhatsApp (Graph API)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar WhatsApp (Graph API)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Avisar recepção (Chatwoot)": {
+      "main": [
+        [
+          {
+            "node": "Responder ao webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar WhatsApp (Graph API)": {
+      "main": [
+        [
+          {
+            "node": "Responder ao webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo"
+  },
+  "pinData": {}
+}
