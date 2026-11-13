@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ônix Store · vitrine com pedido pelo WhatsApp (demo)</title>
+<meta name="description" content="Loja vitrine fictícia de roupas, celulares e eletrônicos, em preto e dourado, com categorias, busca e pedido pelo WhatsApp com o produto, a variação e o preço já na mensagem.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Ônix Store · vitrine com pedido pelo WhatsApp (demo)">
+<meta property="og:description" content="Vitrine preto e dourado com categorias, busca e botão de comprar pelo WhatsApp.">
+<meta property="og:url" content="https://spidermitobr.github.io/vitrine/">
+<meta property="og:image" content="https://spidermitobr.github.io/portfolio/vitrine.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0c'/%3E%3Cpath d='M16 6l9 10-9 10-9-10z' fill='none' stroke='%23d4af37' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0c;--panel:#141416;--panel2:#1b1b1e;--line:#2a2a2e;
+    --ink:#f3efe6;--muted:#a39d91;--gold:#d4af37;--gold2:#f1d27a;--wa:#25d366;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font:15px/1.55 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  button{font:inherit;color:inherit;cursor:pointer}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  .demo-bar{background:#000;color:var(--muted);font-size:12.5px;text-align:center;padding:7px 16px;border-bottom:1px solid var(--line)}
+  .demo-bar a{color:var(--gold2)}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top{display:flex;align-items:center;gap:16px;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;letter-spacing:.14em}
+  .logo svg{flex:none}
+  .logo span{color:var(--gold)}
+  .search{margin-left:auto;position:relative;flex:0 1 300px}
+  .search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:999px;color:var(--ink);padding:9px 14px 9px 36px;font:inherit;font-size:14px}
+  .search input:focus{outline:none;border-color:var(--gold)}
+  .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.6}
+
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:
+    radial-gradient(60% 90% at 85% 10%,rgba(212,175,55,.18),transparent 60%),
+    radial-gradient(40% 60% at 10% 100%,rgba(212,175,55,.08),transparent 70%),var(--bg)}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;align-items:center;padding-top:56px;padding-bottom:56px}
+  .eyebrow{color:var(--gold);font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;margin:0 0 14px}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.02;margin:0 0 16px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);max-width:440px;margin:0 0 26px}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#141006;font-weight:600;border:0;border-radius:999px;padding:13px 24px;text-decoration:none}
+  .cta.ghost{background:none;color:var(--ink);border:1px solid var(--line);margin-left:8px}
+  .hero-art{justify-self:center;width:min(100%,380px);aspect-ratio:1;position:relative}
+  .hero-art .ring{position:absolute;inset:0;border:1px solid rgba(212,175,55,.35);border-radius:50%}
+  .hero-art .ring.r2{inset:12%;border-style:dashed;opacity:.5}
+  .hero-art svg{position:absolute;inset:18%;width:64%;height:64%}
+
+  .perks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .perk{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13.5px}
+  .perk b{display:block;color:var(--ink);font-weight:600;font-size:14px}
+  .perk svg{flex:none}
+
+  .bar{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;padding:40px 0 18px}
+  .bar h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:34px;margin:0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:13.5px;color:var(--muted)}
+  .chip[aria-pressed="true"]{border-color:var(--gold);color:var(--gold2);background:rgba(212,175,55,.08)}
+
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-bottom:56px}
+  .card{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:rgba(212,175,55,.5);transform:translateY(-2px)}
+  .thumb{aspect-ratio:1/1;background:radial-gradient(70% 70% at 50% 40%,#232327,var(--panel2));display:grid;place-items:center;position:relative;border:0;padding:0;width:100%}
+  .thumb svg{width:56%;height:56%}
+  .tag{position:absolute;top:10px;left:10px;background:var(--gold);color:#141006;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:3px 8px}
+  .info{padding:14px 14px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .cat{color:var(--gold);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .name{font-weight:500;margin:0;font-size:15px}
+  .price{font-size:19px;font-weight:600;margin-top:4px}
+  .inst{color:var(--muted);font-size:12.5px}
+  .card .buy{margin-top:auto}
+  .buy{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px;background:none;border:1px solid var(--gold);color:var(--gold2);border-radius:10px;padding:10px;font-weight:600;font-size:14px}
+  .buy:hover{background:rgba(212,175,55,.1)}
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+
+  dialog{border:1px solid var(--line);border-radius:20px;background:var(--panel);color:var(--ink);padding:0;width:min(760px,calc(100% - 32px));max-height:calc(100% - 32px)}
+  dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
+  .sheet{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .sheet .thumb{aspect-ratio:auto;min-height:100%}
+  .sheet .body{padding:26px 24px 24px;display:flex;flex-direction:column;gap:8px}
+  .sheet h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:30px;line-height:1.1;margin:0}
+  .sheet p{color:var(--muted);margin:0}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .opt{min-width:44px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px}
+  .opt[aria-pressed="true"]{border-color:var(--gold);color:var(--gold2)}
+  .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:10px;width:max-content}
+  .qty button{background:none;border:0;width:40px;height:40px;font-size:18px}
+  .qty output{min-width:28px;text-align:center}
+  .wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#04210f;border:0;border-radius:12px;padding:14px;font-weight:600;text-decoration:none;margin-top:14px}
+  .preview{background:var(--panel2);border:1px dashed var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--muted);white-space:pre-line}
+  .close{position:absolute;z-index:2;top:10px;right:10px;color:var(--ink);background:rgba(0,0,0,.5);border:1px solid var(--line);border-radius:50%;width:38px;height:38px;font-size:20px;line-height:1}
+
+  footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;padding-top:28px;padding-bottom:90px}
+  .float{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+
+  @media (max-width:960px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:760px){
+    .hero .wrap{grid-template-columns:minmax(0,1fr);padding-top:36px;padding-bottom:36px}
+    .hero-art{display:none}
+    .perks{grid-template-columns:1fr;gap:10px}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .buy .full{display:none}
+    .info{padding:12px}
+    .price{font-size:17px}
+    .buy{font-size:13px;padding:9px 6px}
+    .sheet{grid-template-columns:minmax(0,1fr)}
+    .sheet .thumb{aspect-ratio:16/10}
+    .search{flex:1 1 auto;min-width:0}
+    .top{gap:12px}
+    .logo{font-size:21px}
+    .cta.ghost{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="demo-bar">Loja fictícia para portfólio: os produtos e preços são de exemplo. <a href="/">Voltar ao portfólio</a></div>
+
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#" aria-label="Ônix Store, início">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l11 12-11 12L5 16z" fill="none" stroke="#d4af37" stroke-width="2"/><path d="M16 10l5.5 6-5.5 6-5.5-6z" fill="#d4af37"/></svg>
+      ÔNIX<span>STORE</span>
+    </a>
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="Buscar produto" aria-label="Buscar produto" autocomplete="off">
+    </label>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Nova coleção · Black &amp; Gold</p>
+        <h1>Estilo e tecnologia <em>num só lugar</em></h1>
+        <p>Roupas, celulares e eletrônicos selecionados. Escolha o produto, toque em comprar e finalize direto com a gente pelo WhatsApp.</p>
+        <a class="cta" href="#produtos">Ver produtos</a><a class="cta ghost" href="#como">Como comprar</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="ring"></div><div class="ring r2"></div>
+        <svg viewBox="0 0 100 100"><path d="M50 6l38 44-38 44-38-44z" fill="none" stroke="#d4af37" stroke-width="1.2"/><path d="M50 22l24 28-24 28-24-28z" fill="none" stroke="#f1d27a" stroke-width="1"/><path d="M50 36l12 14-12 14-12-14z" fill="#d4af37"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap perks" id="como">
+    <div class="perk"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/></svg><div><b>Compra pelo WhatsApp</b>O produto escolhido já vai na mensagem</div></div>
+    <div class="perk"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/><circle cx="7" cy="17.5" r="1.6" fill="#0b0b0c" stroke="#d4af37" stroke-width="1.5"/><circle cx="17" cy="17.5" r="1.6" fill="#0b0b0c" stroke="#d4af37" stroke-width="1.5"/></svg><div><b>Entrega ou retirada</b>Combinada na conversa</div></div>
+    <div class="perk"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/></svg><div><b>Garantia em eletrônicos</b>Celulares e acessórios com nota</div></div>
+  </div>
+
+  <section class="wrap" id="produtos" aria-labelledby="t-prod">
+    <div class="bar">
+      <h2 id="t-prod">Produtos</h2>
+      <div class="chips" role="group" aria-label="Filtrar por categoria">
+        <button class="chip" data-cat="" aria-pressed="true">Todos</button>
+        <button class="chip" data-cat="Roupas" aria-pressed="false">Roupas</button>
+        <button class="chip" data-cat="Celulares" aria-pressed="false">Celulares</button>
+        <button class="chip" data-cat="Eletrônicos" aria-pressed="false">Eletrônicos</button>
+      </div>
+    </div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:var(--ink)">ÔNIX STORE</strong><br>Loja fictícia de demonstração</div>
+    <div>Atendimento: seg. a sáb., 9h às 19h<br>Pedidos pelo WhatsApp</div>
+    <div>Feito por <a href="/">Mateus de Almeida Motta</a></div>
+  </div>
+</footer>
+
+<a class="float" id="float" href="#" target="_blank" rel="noopener" aria-label="Falar com a loja no WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+</a>
+
+<dialog id="dlg" aria-labelledby="d-name">
+  <form method="dialog" style="position:relative">
+    <button class="close" aria-label="Fechar">×</button>
+  </form>
+  <div class="sheet">
+    <div class="thumb" id="d-img"></div>
+    <div class="body">
+      <span class="cat" id="d-cat"></span>
+      <h3 id="d-name"></h3>
+      <p id="d-desc"></p>
+      <div class="price" id="d-price"></div>
+      <span class="inst" id="d-inst"></span>
+      <span class="lbl" id="d-optlbl"></span>
+      <div class="opts" id="d-opts" role="group"></div>
+      <span class="lbl">Quantidade</span>
+      <div class="qty"><button type="button" id="minus" aria-label="Diminuir">−</button><output id="n">1</output><button type="button" id="plus" aria-label="Aumentar">+</button></div>
+      <a class="wa" id="d-wa" href="#" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+        Comprar pelo WhatsApp
+      </a>
+      <span class="lbl">A mensagem que vai para a loja</span>
+      <div class="preview" id="d-msg"></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+// Na loja real, este é o número da loja (ex.: "5511999999999"). Vazio = o WhatsApp pede para escolher o contato.
+const FONE = "";
+
+const G = '#d4af37', G2 = '#f1d27a';
+const s = (d) => `<svg viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="${G}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">${d}</svg>`;
+const ART = {
+  camiseta: s(`<path d="M36 18l-20 10 7 15 9-4v43h36V39l9 4 7-15-20-10c-2 6-7 10-14 10s-12-4-14-10z"/><path d="M40 60h20" stroke="${G2}"/>`),
+  moletom: s(`<path d="M38 16c3 7 21 7 24 0l18 10 6 46h-12l-3-30v46H31V42l-3 30H16l6-46z"/><path d="M44 18v12M56 18v12M38 64h24" stroke="${G2}"/>`),
+  jaqueta: s(`<path d="M36 16l-18 10-4 50h14l3-28v40h38V48l3 28h14l-4-50-18-10-14 14z"/><path d="M50 30v58M42 50h-6M64 50h-6" stroke="${G2}"/>`),
+  bone: s(`<path d="M18 62c0-22 14-36 32-36s32 14 32 36z"/><path d="M50 26v36M18 62c10 4 40 8 66-2l8 6c-24 10-58 8-74 0z" stroke="${G2}"/><circle cx="50" cy="24" r="3" fill="${G}"/>`),
+  celular: s(`<rect x="30" y="10" width="40" height="80" rx="8"/><path d="M44 16h12" stroke="${G2}"/><circle cx="50" cy="82" r="2.5" fill="${G}"/><path d="M36 26h28v48H36z" stroke-width="1.2" stroke="${G2}"/>`),
+  celularpro: s(`<rect x="28" y="8" width="44" height="84" rx="10"/><rect x="34" y="14" width="18" height="18" rx="5" stroke="${G2}"/><circle cx="40" cy="20" r="2.5" stroke="${G2}"/><circle cx="46" cy="26" r="2.5" stroke="${G2}"/><circle cx="40" cy="27" r="1.6" fill="${G2}"/>`),
+  fone: s(`<path d="M22 60V50a28 28 0 0 1 56 0v10"/><rect x="16" y="56" width="16" height="26" rx="6"/><rect x="68" y="56" width="16" height="26" rx="6"/><path d="M24 64v10M76 64v10" stroke="${G2}"/>`),
+  relogio: s(`<path d="M38 8h24l-3 18H41zM38 92h24l-3-18H41z"/><rect x="28" y="26" width="44" height="48" rx="12"/><path d="M50 38v12l8 6" stroke="${G2}"/><path d="M72 46h4v8h-4"/>`),
+  caixa: s(`<rect x="14" y="30" width="72" height="42" rx="20"/><circle cx="34" cy="51" r="10" stroke="${G2}"/><circle cx="66" cy="51" r="10" stroke="${G2}"/><circle cx="34" cy="51" r="3" fill="${G}"/><circle cx="66" cy="51" r="3" fill="${G}"/><path d="M30 30v-6h40v6"/>`),
+  carregador: s(`<rect x="30" y="26" width="40" height="44" rx="8"/><path d="M42 26V12M58 26V12" /><path d="M52 36l-8 12h10l-6 12" stroke="${G2}"/><path d="M50 70v10c0 6 6 8 12 8h10"/>`),
+  powerbank: s(`<rect x="24" y="14" width="52" height="74" rx="10"/><path d="M38 30h24v40H38z" stroke="${G2}"/><path d="M38 60h24M38 50h24M38 40h24" stroke="${G2}" stroke-width="1.4"/><path d="M44 14V9h12v5"/>`),
+  tenis: s(`<path d="M10 66c0-8 4-14 10-16l14-4 10-14 8 2-2 12c10 4 22 6 34 8 6 1 8 6 8 12v4H10z"/><path d="M10 72h82M36 50l6 6M44 44l6 6" stroke="${G2}"/>`),
+};
+
+const P = [
+  {id:1,cat:"Roupas",nome:"Camiseta Oversized Ônix",preco:89.9,art:"camiseta",tag:"Mais vendida",opt:["P","M","G","GG"],optLbl:"Tamanho",desc:"Algodão 230 g, caimento amplo e estampa dourada discreta no peito."},
+  {id:2,cat:"Celulares",nome:"Smartphone Aurum X 128 GB",preco:1899,art:"celular",tag:"Lançamento",opt:["Preto","Grafite","Dourado"],optLbl:"Cor",desc:"Tela de 6,6\", câmera tripla de 50 MP e bateria para o dia todo. Nota fiscal e 1 ano de garantia."},
+  {id:3,cat:"Eletrônicos",nome:"Fone Bluetooth com cancelamento de ruído",preco:299.9,art:"fone",opt:["Preto","Branco"],optLbl:"Cor",desc:"Até 30 horas de bateria, cancelamento ativo de ruído e carregamento rápido."},
+  {id:4,cat:"Roupas",nome:"Moletom Gold Line",preco:189.9,art:"moletom",opt:["P","M","G","GG"],optLbl:"Tamanho",desc:"Moletom flanelado com capuz e faixa dourada bordada na manga."},
+  {id:5,cat:"Eletrônicos",nome:"Smartwatch Fit Pro",preco:349.9,art:"relogio",tag:"-15%",opt:["Preto","Dourado"],optLbl:"Cor",desc:"Monitor de batimentos e sono, mais de 100 modos de treino e notificações do celular."},
+  {id:6,cat:"Celulares",nome:"Smartphone Aurum Pro 256 GB",preco:3499,art:"celularpro",opt:["Preto","Titânio"],optLbl:"Cor",desc:"Câmera de 108 MP, tela AMOLED de 120 Hz e carregamento de 67 W. Nota fiscal e 1 ano de garantia."},
+  {id:7,cat:"Roupas",nome:"Jaqueta Corta-vento Black",preco:249.9,art:"jaqueta",opt:["P","M","G","GG"],optLbl:"Tamanho",desc:"Tecido leve e resistente à água, zíper dourado e bolsos internos."},
+  {id:8,cat:"Eletrônicos",nome:"Caixa de som portátil 20 W",preco:219.9,art:"caixa",opt:["Preto"],optLbl:"Cor",desc:"Som estéreo, resistente à água e 12 horas de bateria."},
+  {id:9,cat:"Celulares",nome:"Smartphone Aurum Lite 64 GB",preco:1099,art:"celular",opt:["Preto","Azul"],optLbl:"Cor",desc:"O essencial bem-feito: tela grande, boa câmera e bateria de 5.000 mAh."},
+  {id:10,cat:"Roupas",nome:"Boné Aba Curva Ônix",preco:69.9,art:"bone",opt:["Único"],optLbl:"Tamanho",desc:"Ajuste traseiro com fivela metálica dourada."},
+  {id:11,cat:"Eletrônicos",nome:"Carregador turbo 33 W com cabo",preco:79.9,art:"carregador",opt:["USB-C","Lightning"],optLbl:"Cabo",desc:"Carrega até 50% em 25 minutos nos celulares compatíveis."},
+  {id:12,cat:"Eletrônicos",nome:"Power bank 20.000 mAh",preco:149.9,art:"powerbank",opt:["Preto"],optLbl:"Cor",desc:"Carrega o celular até 4 vezes, com duas saídas USB e uma USB-C."},
+  {id:13,cat:"Roupas",nome:"Tênis Street Black",preco:279.9,art:"tenis",opt:["38","39","40","41","42","43"],optLbl:"Número",desc:"Cabedal sintético premium e solado de borracha com detalhe dourado."},
+];
+
+const brl = (v) => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const parcela = (v) => v >= 300 ? `ou 10x de ${brl(v/10)} sem juros` : v >= 100 ? `ou 3x de ${brl(v/3)} sem juros` : "à vista no Pix";
+const waLink = (txt) => `https://wa.me/${FONE}?text=${encodeURIComponent(txt)}`;
+
+const grid = document.getElementById("grid"), q = document.getElementById("q");
+let cat = "";
+const norm = (t) => t.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+
+function render(){
+  const termo = norm(q.value.trim());
+  const lista = P.filter(p => (!cat || p.cat === cat) && (!termo || norm(p.nome + " " + p.cat).includes(termo)));
+  grid.innerHTML = lista.length ? lista.map(p => `
+    <article class="card">
+      <button class="thumb" data-open="${p.id}" aria-label="Ver ${p.nome}">${ART[p.art]}${p.tag ? `<span class="tag">${p.tag}</span>` : ""}</button>
+      <div class="info">
+        <span class="cat">${p.cat}</span>
+        <h3 class="name">${p.nome}</h3>
+        <span class="price">${brl(p.preco)}</span>
+        <span class="inst">${parcela(p.preco)}</span>
+        <button class="buy" data-open="${p.id}">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+          <span>Comprar<span class="full"> pelo WhatsApp</span></span>
+        </button>
+      </div>
+    </article>`).join("") : `<p class="empty">Nenhum produto encontrado para “${q.value}”.</p>`;
+}
+
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+  cat = b.dataset.cat;
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+  render();
+}));
+q.addEventListener("input", render);
+
+const dlg = document.getElementById("dlg");
+let atual, opcao, qtd;
+function mensagem(){
+  const linhas = [`Olá, Ônix Store! Quero comprar:`, `• ${atual.nome}`, `• ${atual.optLbl}: ${opcao}`, `• Quantidade: ${qtd}`, `• Total: ${brl(atual.preco * qtd)}`, ``, `Pode me passar a forma de pagamento e a entrega?`];
+  return linhas.join("\n");
+}
+function atualiza(){
+  document.getElementById("n").textContent = qtd;
+  document.getElementById("d-price").textContent = brl(atual.preco * qtd);
+  document.getElementById("d-msg").textContent = mensagem();
+  document.getElementById("d-wa").href = waLink(mensagem());
+  document.querySelectorAll(".opt").forEach(o => o.setAttribute("aria-pressed", o.dataset.v === opcao));
+}
+function abre(id){
+  atual = P.find(p => p.id == id); opcao = atual.opt[0]; qtd = 1;
+  document.getElementById("d-img").innerHTML = ART[atual.art];
+  document.getElementById("d-cat").textContent = atual.cat;
+  document.getElementById("d-name").textContent = atual.nome;
+  document.getElementById("d-desc").textContent = atual.desc;
+  document.getElementById("d-inst").textContent = parcela(atual.preco);
+  document.getElementById("d-optlbl").textContent = atual.optLbl;
+  const box = document.getElementById("d-opts");
+  box.setAttribute("aria-label", atual.optLbl);
+  box.innerHTML = atual.opt.map(o => `<button type="button" class="opt" data-v="${o}">${o}</button>`).join("");
+  box.querySelectorAll(".opt").forEach(o => o.addEventListener("click", () => { opcao = o.dataset.v; atualiza(); }));
+  atualiza();
+  dlg.showModal();
+}
+grid.addEventListener("click", (e) => { const b = e.target.closest("[data-open]"); if (b) abre(b.dataset.open); });
+document.getElementById("minus").onclick = () => { if (qtd > 1) { qtd--; atualiza(); } };
+document.getElementById("plus").onclick = () => { if (qtd < 10) { qtd++; atualiza(); } };
+dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+document.getElementById("float").href = waLink("Olá, Ônix Store! Vim pelo site e queria tirar uma dúvida.");
+render();
+</script>
+</body>
+</html>
