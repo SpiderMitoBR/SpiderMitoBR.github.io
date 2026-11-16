@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ateliê Ninho · landing page de produtos personalizados (demo)</title>
+<meta name="description" content="Landing page fictícia de produtos personalizados: catálogo por categoria, como funciona, galeria de trabalhos, depoimentos, perguntas frequentes e pedido de orçamento direto no WhatsApp.">
+<meta name="theme-color" content="#f6efe4">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Ateliê Ninho · produtos personalizados (demo)">
+<meta property="og:description" content="Landing page com catálogo, galeria, FAQ e orçamento pelo WhatsApp.">
+<meta property="og:url" content="https://spidermitobr.github.io/personalizados/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c4573a'/%3E%3Cpath d='M9 19c2 4 12 4 14 0M11 13h.01M21 13h.01' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6efe4;--paper:#fffaf2;--ink:#2b211c;--muted:#6f6158;--line:#e6d9c6;
+    --terra:#c4573a;--terra2:#a8442b;--sage:#7d9473;--sun:#e8b04b;--rose:#e9a7a0;--sky:#8fb3c9;--wa:#1faa59;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  button,input,select,textarea{font:inherit;color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.12;margin:0}
+  h2{font-size:clamp(28px,4.2vw,42px);margin-bottom:10px}
+  .kicker{font-family:"Caveat",cursive;color:var(--terra);font-size:24px;margin:0 0 2px}
+  .lead{color:var(--muted);max-width:560px;margin:0 0 32px}
+  section{padding:76px 0}
+  :focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:6px}
+
+  .demo-bar{background:var(--ink);color:#e9dccb;font-size:13px;text-align:center;padding:7px 16px}
+  .demo-bar a{color:var(--sun)}
+
+  header{position:sticky;top:0;z-index:30;background:rgba(246,239,228,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top{display:flex;align-items:center;gap:20px;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Fraunces",serif;font-weight:600;font-size:22px}
+  .logo i{font-style:normal;color:var(--terra)}
+  nav.menu{margin-left:auto;display:flex;gap:22px;font-size:15px}
+  nav.menu a{text-decoration:none;color:var(--muted)}
+  nav.menu a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 24px;font-weight:600;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-main{background:var(--terra);color:#fff;box-shadow:0 8px 20px -10px rgba(196,87,58,.8)}
+  .btn-main:hover{background:var(--terra2)}
+  .btn-line{background:transparent;border:1.5px solid var(--ink)}
+  .top .btn{padding:10px 18px;font-size:14.5px}
+
+  /* HERO */
+  .hero{padding:56px 0 70px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+  .hero h1{font-size:clamp(40px,6.4vw,70px);letter-spacing:-.01em;margin:6px 0 18px}
+  .hero h1 .hand{font-family:"Caveat",cursive;color:var(--terra);font-weight:600;font-size:1.12em;display:inline-block;transform:rotate(-3deg);margin-right:.18em}
+  .hero p.sub{color:var(--muted);font-size:18px;max-width:480px;margin:0 0 28px}
+  .hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;color:var(--muted);font-size:14px}
+  .trust b{display:block;color:var(--ink);font-family:"Fraunces",serif;font-size:24px}
+  .stage{position:relative;aspect-ratio:1/1;max-width:500px;justify-self:center;width:100%}
+  .stage .blob{position:absolute;inset:6%;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;background:var(--paper);border:1.5px dashed var(--line)}
+  .stage .item{position:absolute;filter:drop-shadow(0 18px 22px rgba(80,50,30,.18));transition:transform .4s}
+  .stage .item:hover{transform:translateY(-6px) rotate(-1deg)}
+  .stage .i1{width:46%;left:4%;top:16%}
+  .stage .i2{width:42%;right:2%;top:4%}
+  .stage .i3{width:38%;right:8%;bottom:6%}
+  .stage .tag{position:absolute;left:8%;bottom:10%;background:#fff;border-radius:14px;padding:10px 14px;font-size:14px;box-shadow:0 10px 24px -12px rgba(0,0,0,.3);max-width:200px}
+  .stage .tag em{font-family:"Caveat",cursive;font-style:normal;font-size:20px;color:var(--terra);display:block;line-height:1}
+
+  /* CATEGORIAS */
+  .cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .chip{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 16px;font-size:14.5px;cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+  .card .pic{aspect-ratio:4/3;display:grid;place-items:center;padding:18px}
+  .card .pic svg{width:72%;height:auto}
+  .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card h3{font-size:19px}
+  .card p{margin:0;color:var(--muted);font-size:14.5px}
+  .card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;font-size:14px}
+  .card .meta b{font-family:"Fraunces",serif;font-size:17px}
+  .card .ask{background:none;border:0;color:var(--terra);font-weight:600;cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px}
+
+  /* COMO FUNCIONA */
+  .how{background:var(--ink);color:#f4ebdf;border-radius:36px;margin:0 16px}
+  .how .lead{color:#c8b9a8}
+  .how .kicker{color:var(--sun)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+  .step{position:relative;padding:22px 20px;border:1px solid #4a3d35;border-radius:20px}
+  .step::before{counter-increment:s;content:counter(s);font-family:"Fraunces",serif;font-size:42px;color:var(--sun);line-height:1;display:block;margin-bottom:12px}
+  .step h3{font-size:20px;margin-bottom:6px}
+  .step p{margin:0;color:#c8b9a8;font-size:14.5px}
+
+  /* GALERIA */
+  .gallery{columns:4 220px;column-gap:16px}
+  .shot{break-inside:avoid;margin:0 0 16px;border-radius:18px;overflow:hidden;background:var(--paper);border:1px solid var(--line);cursor:zoom-in;position:relative;display:block;width:100%;padding:0;text-align:left}
+  .shot svg{width:100%;height:auto}
+  .shot figcaption{padding:10px 14px 12px;font-size:14px;color:var(--muted)}
+  .shot figcaption b{color:var(--ink);font-weight:600;display:block}
+  .note{font-size:14px;color:var(--muted);margin-top:6px}
+
+  /* DIFERENCIAIS */
+  .perks{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .perk{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px}
+  .perk .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px}
+  .perk h3{font-size:19px;margin-bottom:6px}
+  .perk p{margin:0;color:var(--muted);font-size:14.5px}
+
+  /* DEPOIMENTOS */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .quote{background:#fff;border-radius:20px;padding:24px;border:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+  .quote .stars{color:var(--sun);letter-spacing:2px}
+  .quote p{margin:0;font-family:"Fraunces",serif;font-size:17.5px;line-height:1.45}
+  .quote .who{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin-top:auto}
+  .quote .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600}
+
+  /* FAQ */
+  .faq{max-width:780px}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-family:"Fraunces",serif;font-size:19px;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:6px;top:14px;font-size:28px;color:var(--terra);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin:0 0 20px;color:var(--muted)}
+
+  /* ORÇAMENTO */
+  .quote-box{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;background:var(--paper);border:1px solid var(--line);border-radius:32px;padding:44px}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500}
+  label.full{grid-column:1/-1}
+  input,select,textarea{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;font-size:15px}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--terra)}
+  textarea{min-height:96px;resize:vertical}
+  form .btn{grid-column:1/-1;background:var(--wa);color:#fff;padding:15px}
+  .preview{grid-column:1/-1;background:#e7f7ec;border-radius:14px;padding:12px 14px;font-size:13.5px;color:#245;white-space:pre-wrap;display:none}
+  .preview.on{display:block}
+  .contact-list{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px;color:var(--muted);font-size:15px}
+
+  footer{padding:36px 0 96px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+
+  .wa-float{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+
+  dialog{border:0;border-radius:22px;padding:0;max-width:min(560px,92vw);background:var(--paper)}
+  dialog::backdrop{background:rgba(43,33,28,.6)}
+  dialog .dpic{background:#fff;padding:24px}
+  dialog .dbody{padding:16px 20px 20px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  dialog button.x{background:none;border:0;font-size:15px;cursor:pointer;text-decoration:underline}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.btn:hover,.stage .item:hover{transform:none}}
+
+  @media (max-width:900px){
+    nav.menu{display:none}
+    .top .btn{margin-left:auto}
+    .hero .wrap,.quote-box{grid-template-columns:1fr}
+    .steps,.perks{grid-template-columns:1fr 1fr}
+    .quotes{grid-template-columns:1fr}
+    .quote-box{padding:26px 18px}
+  }
+  @media (max-width:560px){
+    section{padding:56px 0}
+    .steps,.perks,form{grid-template-columns:1fr}
+    .how{margin:0 8px;border-radius:26px}
+    .top .btn span{display:none}
+    .stage .tag{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="demo-bar">Marca fictícia para portfólio: produtos, preços e depoimentos são de exemplo. <a href="/">Voltar ao portfólio</a></div>
+
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#topo" aria-label="Ateliê Ninho, início">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#c4573a"/><path d="M9 19c2 4 12 4 14 0M11 13h.01M21 13h.01" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg>
+      Ateliê <i>Ninho</i>
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#produtos">Produtos</a><a href="#como">Como funciona</a><a href="#galeria">Trabalhos</a><a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-main" href="#orcamento" aria-label="Solicite seu orçamento"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg><span>Solicite seu orçamento</span></a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">feito à mão, feito pra você</p>
+        <h1>Presentes com o <span class="hand">seu nome</span> no detalhe.</h1>
+        <p class="sub">Canecas, camisetas, quadros, kits e lembrancinhas personalizados do jeito que você imaginou. Você manda a ideia, a gente transforma em presente.</p>
+        <div class="ctas">
+          <a class="btn btn-main" href="#orcamento">Personalize o seu</a>
+          <a class="btn btn-line" href="#galeria">Ver trabalhos feitos</a>
+        </div>
+        <div class="trust">
+          <div><b>+1.200</b>pedidos entregues</div>
+          <div><b>4,9 ★</b>nota das clientes</div>
+          <div><b>Brasil todo</b>envio pelos Correios</div>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="item i1" data-art="caneca|#e9a7a0|Mãe ♥"></div>
+        <div class="item i2" data-art="quadro|#7d9473|Lar da Bia"></div>
+        <div class="item i3" data-art="caixa|#e8b04b|Feliz 15!"></div>
+        <div class="tag"><em>“Ficou perfeito!”</em>Caneca com a frase que a cliente mandou pelo WhatsApp.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos">
+    <div class="wrap">
+      <p class="kicker">o que a gente faz</p>
+      <h2>Escolha o produto, a gente personaliza.</h2>
+      <p class="lead">Nome, foto, frase, cores do seu evento ou a logo da sua empresa. Toque em “Quero este” para pedir o orçamento já com o produto escolhido.</p>
+      <div class="cats" role="group" aria-label="Filtrar por categoria" id="cats"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="como" class="how">
+    <div class="wrap">
+      <p class="kicker">simples assim</p>
+      <h2>Como funciona a personalização</h2>
+      <p class="lead">Do seu recado até a entrega, você acompanha tudo pelo WhatsApp e só paga depois de aprovar a arte.</p>
+      <div class="steps">
+        <div class="step"><h3>Escolha o produto</h3><p>Navegue pelo catálogo e veja qual combina com a ocasião.</p></div>
+        <div class="step"><h3>Envie sua ideia</h3><p>Mande nome, frase, foto ou uma referência que você gostou.</p></div>
+        <div class="step"><h3>Receba a arte e o orçamento</h3><p>Você vê como vai ficar antes de produzir, com preço e prazo.</p></div>
+        <div class="step"><h3>Aprovou, produzimos</h3><p>Seu pedido é feito com cuidado e enviado ou retirado no ateliê.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <p class="kicker">feitos com carinho</p>
+      <h2>Trabalhos realizados</h2>
+      <p class="lead">Alguns pedidos que saíram do ateliê. Toque numa peça para ver maior.</p>
+      <div class="gallery" id="gallery"></div>
+      <p class="note">Na página real, aqui entram as fotos dos seus produtos. Para incluir um trabalho novo, basta adicionar a foto na lista.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">por que a Ninho</p>
+      <h2>O cuidado está nos detalhes</h2>
+      <p class="lead">Cada peça é pensada para a pessoa que vai receber.</p>
+      <div class="perks">
+        <div class="perk"><div class="ic" style="background:#f6d9d3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4573a" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></div><h3>Do seu jeito</h3><p>Nome, foto, frase, cores ou logo. Nada sai igual para duas pessoas.</p></div>
+        <div class="perk"><div class="ic" style="background:#e1e9dc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5c7353" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><h3>Atenção aos detalhes</h3><p>Você aprova a arte antes. Conferimos cada peça antes de embalar.</p></div>
+        <div class="perk"><div class="ic" style="background:#fbecc9"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b07d17" stroke-width="2" aria-hidden="true"><path d="M7 11h10v9H7zM4 7h16v4H4zM12 7v13M12 7C10 3 7 4 8 7M12 7c2-4 5-3 4 0"/></svg></div><h3>Pra toda ocasião</h3><p>Aniversário, casamento, maternidade, datas comemorativas e brindes de empresa.</p></div>
+        <div class="perk"><div class="ic" style="background:#dde8ef"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4f7a93" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.2L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3>Atendimento de verdade</h3><p>Uma pessoa responde você no WhatsApp, do primeiro “oi” à entrega.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker">quem já recebeu</p>
+      <h2>O que as clientes dizem</h2>
+      <p class="lead">Depoimentos de exemplo. Na página real, entram os da sua loja, e dá para adicionar novos depois.</p>
+      <div class="quotes">
+        <figure class="quote" style="margin:0"><div class="stars" aria-label="5 de 5 estrelas">★★★★★</div><p>Pedi as canecas do chá de bebê numa terça e chegaram na sexta, iguaizinhas à arte que aprovei.</p><figcaption class="who"><span class="av" style="background:#c4573a">J</span>Juliana R. · Campinas</figcaption></figure>
+        <figure class="quote" style="margin:0"><div class="stars" aria-label="5 de 5 estrelas">★★★★★</div><p>O quadro com a foto da família fez minha mãe chorar no aniversário. Embalagem linda.</p><figcaption class="who"><span class="av" style="background:#7d9473">M</span>Marcos T. · Belo Horizonte</figcaption></figure>
+        <figure class="quote" style="margin:0"><div class="stars" aria-label="5 de 5 estrelas">★★★★★</div><p>Fiz 80 kits de brinde para a empresa. Atendimento rápido e tudo veio conferido.</p><figcaption class="who"><span class="av" style="background:#4f7a93">C</span>Carla S. · São Paulo</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas" style="padding-top:0">
+    <div class="wrap faq">
+      <p class="kicker">tire suas dúvidas</p>
+      <h2>Perguntas frequentes</h2>
+      <details><summary>Como faço um pedido personalizado?</summary><p>Escolha o produto, toque em “Quero este” ou preencha o formulário de orçamento. A conversa abre no WhatsApp já com o seu pedido escrito. Em seguida, mandamos a arte e o valor.</p></details>
+      <details><summary>Posso enviar uma imagem ou referência?</summary><p>Pode e deve! Foto, print do Pinterest, desenho à mão ou a logo da empresa. Quanto mais referência, mais a peça fica com a sua cara.</p></details>
+      <details><summary>Qual é o prazo de produção?</summary><p>Em média de 3 a 7 dias úteis depois da aprovação da arte. Para pedidos grandes ou com data marcada, combinamos o prazo antes.</p></details>
+      <details><summary>Existe quantidade mínima?</summary><p>Não para a maioria dos produtos: fazemos a partir de 1 unidade. Lembrancinhas e brindes têm preço menor por unidade a partir de 20 peças.</p></details>
+      <details><summary>Como funciona o pagamento?</summary><p>Pix ou cartão, depois que você aprova a arte. Em pedidos acima de 30 peças, 50% na aprovação e 50% antes do envio.</p></details>
+      <details><summary>Como é realizada a entrega?</summary><p>Enviamos para todo o Brasil pelos Correios, com código de rastreio, ou você retira no ateliê com horário marcado.</p></details>
+    </div>
+  </section>
+
+  <section id="orcamento" style="padding-top:0">
+    <div class="wrap">
+      <div class="quote-box">
+        <div>
+          <p class="kicker">vamos criar juntos?</p>
+          <h2>Solicite seu orçamento</h2>
+          <p class="lead" style="margin-bottom:0">Conte o que você imaginou. A mensagem abre no WhatsApp já preenchida, e você confere antes de enviar.</p>
+          <ul class="contact-list">
+            <li>📍 Ateliê em Campinas, SP · retirada com hora marcada</li>
+            <li>🕘 Seg. a sex., 9h às 18h · sáb., 9h às 13h</li>
+            <li>📦 Envio para todo o Brasil</li>
+          </ul>
+        </div>
+        <form id="form" novalidate>
+          <label>Seu nome<input name="nome" required autocomplete="name" placeholder="Como podemos te chamar?"></label>
+          <label>Produto<select name="produto" id="selProduto"></select></label>
+          <label>Ocasião<select name="ocasiao"><option>Aniversário</option><option>Casamento</option><option>Maternidade / chá de bebê</option><option>Dia das Mães / dos Pais</option><option>Natal</option><option>Brinde de empresa</option><option>Outra</option></select></label>
+          <label>Quantidade<input name="qtd" type="number" min="1" value="1" inputmode="numeric"></label>
+          <label class="full">Sua ideia<textarea name="ideia" placeholder="Ex.: caneca rosa com “Melhor mãe do mundo” e a foto de nós duas"></textarea></label>
+          <label class="full">Para quando você precisa?<input name="data" type="date"></label>
+          <div class="preview" id="preview" aria-live="polite"></div>
+          <button class="btn" type="submit"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.6-.1 1.2z"/></svg>Enviar pedido pelo WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ateliê Ninho · presentes personalizados (marca fictícia)</span>
+    <span>Instagram @atelieninho · WhatsApp (19) 9 0000-0000</span>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" aria-label="Falar no WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.6-.1 1.2z"/></svg></a>
+
+<dialog id="zoom" aria-label="Trabalho ampliado"><div class="dpic" id="zoomPic"></div><div class="dbody"><span id="zoomCap"></span><button class="x" id="zoomClose">Fechar</button></div></dialog>
+
+<script>
+// Na página real, este é o número da loja (ex.: "5519999999999"). Vazio = o WhatsApp pede para escolher o contato.
+const FONE = "";
+const wa = (t) => `https://wa.me/${FONE}?text=${encodeURIComponent(t)}`;
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// Ilustrações dos produtos (na página real, são as fotos da loja).
+function art(tipo, cor, txt){
+  const t = esc(txt);
+  const hand = `font-family="Caveat,cursive" font-weight="600" text-anchor="middle"`;
+  const S = (w,h,inner) => `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(tipo)} personalizada: ${t}">${inner}</svg>`;
+  switch(tipo){
+    case "caneca": return S(200,170,`<ellipse cx="92" cy="160" rx="70" ry="7" fill="#000" opacity=".08"/><path d="M150 52h14a26 26 0 010 52h-14" fill="none" stroke="#efe6da" stroke-width="13"/><path d="M150 52h14a26 26 0 010 52h-14" fill="none" stroke="#d9cdbd" stroke-width="2"/><rect x="28" y="22" width="128" height="134" rx="14" fill="#fff" stroke="#e3d6c4" stroke-width="2"/><rect x="28" y="22" width="128" height="22" rx="10" fill="${cor}"/><text x="92" y="104" ${hand} font-size="34" fill="${cor}">${t}</text><path d="M60 122h64" stroke="${cor}" stroke-width="2" stroke-dasharray="3 5" opacity=".7"/>`);
+    case "camiseta": return S(200,190,`<path d="M62 18l-46 26 18 36 18-8v106h96V72l18 8 18-36-46-26c-6 14-20 22-38 22s-32-8-38-22z" fill="${cor}"/><path d="M62 18c6 14 20 22 38 22s32-8 38-22" fill="none" stroke="#000" opacity=".12" stroke-width="4"/><rect x="66" y="78" width="68" height="62" rx="10" fill="#fff" opacity=".9"/><text x="100" y="116" ${hand} font-size="${txt.length>8?19:26}" fill="#2b211c">${t}</text>`);
+    case "quadro": return S(200,200,`<rect x="14" y="14" width="172" height="172" rx="6" fill="#8a6a4f"/><rect x="26" y="26" width="148" height="148" fill="#fffaf2"/><circle cx="76" cy="84" r="20" fill="${cor}" opacity=".85"/><path d="M40 160l42-44 26 26 22-20 30 38z" fill="${cor}"/><text x="100" y="60" ${hand} font-size="26" fill="#2b211c">${t}</text>`);
+    case "caixa": return S(200,190,`<rect x="26" y="70" width="148" height="104" rx="6" fill="${cor}"/><rect x="18" y="52" width="164" height="30" rx="6" fill="${cor}" stroke="#000" stroke-opacity=".08"/><rect x="92" y="52" width="16" height="122" fill="#fff" opacity=".85"/><path d="M100 52c-14-30-48-28-38-6 6 10 24 8 38 6zm0 0c14-30 48-28 38-6-6 10-24 8-38 6z" fill="#fff" stroke="#e3d6c4"/><rect x="40" y="104" width="44" height="40" rx="6" fill="#fff"/><text x="62" y="130" ${hand} font-size="15" fill="#2b211c">${t}</text>`);
+    case "chaveiro": return S(200,190,`<circle cx="100" cy="30" r="16" fill="none" stroke="#b9ad9c" stroke-width="5"/><path d="M100 46v18" stroke="#b9ad9c" stroke-width="4"/><path d="M100 176s-62-38-62-86a34 34 0 0162-18 34 34 0 0162 18c0 48-62 86-62 86z" fill="${cor}"/><text x="100" y="118" ${hand} font-size="28" fill="#fff">${t}</text>`);
+    case "ecobag": return S(200,200,`<path d="M66 60c0-40 68-40 68 0" fill="none" stroke="#d9c7ab" stroke-width="9"/><path d="M34 60h132l-8 128H42z" fill="#efe1c8"/><circle cx="100" cy="112" r="38" fill="${cor}" opacity=".9"/><text x="100" y="121" ${hand} font-size="24" fill="#fff">${t}</text><path d="M60 170h80" stroke="${cor}" stroke-width="3" stroke-dasharray="2 6"/>`);
+    case "almofada": return S(200,190,`<path d="M24 34q76-14 152 0q14 61 0 122q-76 14-152 0q-14-61 0-122z" fill="${cor}"/><path d="M38 48q62-10 124 0q10 47 0 94q-62 10-124 0q-10-47 0-94z" fill="none" stroke="#fff" stroke-dasharray="4 6" opacity=".8"/><text x="100" y="106" ${hand} font-size="30" fill="#fff">${t}</text>`);
+    case "topo": return S(200,200,`<path d="M100 120v72" stroke="#c9b8a0" stroke-width="5"/><path d="M70 120v60M130 120v60" stroke="#c9b8a0" stroke-width="4"/><path d="M22 70q78-60 156 0q-10 54-78 54T22 70z" fill="${cor}"/><text x="100" y="96" ${hand} font-size="30" fill="#fff">${t}</text><circle cx="40" cy="40" r="5" fill="#e8b04b"/><circle cx="168" cy="36" r="4" fill="#e8b04b"/><circle cx="150" cy="18" r="3" fill="${cor}"/>`);
+  }
+}
+
+const PRODUTOS = [
+  {cat:"Canecas",   tipo:"caneca",   cor:"#c4573a", txt:"Pai herói",   nome:"Caneca de porcelana",   desc:"325 ml, com nome, frase ou foto.", preco:"A partir de R$ 39"},
+  {cat:"Canecas",   tipo:"caneca",   cor:"#7d9473", txt:"Bom dia, Lu", nome:"Caneca colorida por dentro", desc:"Alça e interior na cor que você escolher.", preco:"A partir de R$ 45"},
+  {cat:"Camisetas", tipo:"camiseta", cor:"#8fb3c9", txt:"Time Silva",  nome:"Camiseta de família",   desc:"Para viagens, encontros e aniversários.", preco:"A partir de R$ 54"},
+  {cat:"Camisetas", tipo:"camiseta", cor:"#e8b04b", txt:"Mamãe 2026",  nome:"Camiseta maternidade",  desc:"Algodão macio, estampa que não desbota.", preco:"A partir de R$ 59"},
+  {cat:"Decoração", tipo:"quadro",   cor:"#c4573a", txt:"Nosso lar",   nome:"Quadro com foto",       desc:"Moldura de madeira, 30×30 cm.", preco:"A partir de R$ 79"},
+  {cat:"Decoração", tipo:"almofada", cor:"#e9a7a0", txt:"Doce lar",    nome:"Almofada bordada",      desc:"Capa removível com nome ou frase.", preco:"A partir de R$ 69"},
+  {cat:"Festas",    tipo:"topo",     cor:"#c4573a", txt:"Ana 1 ano",   nome:"Topo de bolo",          desc:"Nas cores do tema da festa.", preco:"A partir de R$ 35"},
+  {cat:"Festas",    tipo:"chaveiro", cor:"#7d9473", txt:"Léo",         nome:"Lembrancinha chaveiro", desc:"Com nome do convidado, a partir de 20 un.", preco:"A partir de R$ 6/un."},
+  {cat:"Kits",      tipo:"caixa",    cor:"#e9a7a0", txt:"Pra você",    nome:"Kit presente",          desc:"Caixa com caneca, cartão e mimos.", preco:"A partir de R$ 99"},
+  {cat:"Kits",      tipo:"ecobag",   cor:"#4f7a93", txt:"Sua logo",    nome:"Kit brinde de empresa", desc:"Ecobag, caneca e bloco com a sua marca.", preco:"Sob orçamento"},
+];
+
+const TRABALHOS = [
+  {tipo:"caneca",   cor:"#e9a7a0", txt:"Vovó Cida",  leg:"Canecas para o aniversário de 80 anos", sub:"12 un. · tons de rosa"},
+  {tipo:"topo",     cor:"#4f7a93", txt:"Theo 3",     leg:"Topo de bolo tema fundo do mar", sub:"entregue em 2 dias"},
+  {tipo:"camiseta", cor:"#7d9473", txt:"Trilha 2026",leg:"Camisetas do grupo de trilha", sub:"24 un."},
+  {tipo:"quadro",   cor:"#e8b04b", txt:"Casa Souza", leg:"Quadro de casa nova", sub:"30×30 cm"},
+  {tipo:"almofada", cor:"#c4573a", txt:"Sim!",       leg:"Almofada para pedido de casamento", sub:"bordado à mão"},
+  {tipo:"caixa",    cor:"#7d9473", txt:"Obrigada",   leg:"Kits de agradecimento para clientes", sub:"40 kits · Natal"},
+  {tipo:"chaveiro", cor:"#e9a7a0", txt:"Malu",       leg:"Lembrancinhas de chá de bebê", sub:"60 un."},
+  {tipo:"ecobag",   cor:"#c4573a", txt:"Café Ipê",   leg:"Ecobags para cafeteria", sub:"100 un. com a logo"},
+];
+
+// Catálogo com filtro
+const cats = ["Todos", ...new Set(PRODUTOS.map(p => p.cat))];
+const catsEl = document.getElementById("cats"), grid = document.getElementById("grid");
+function renderGrid(cat){
+  grid.innerHTML = PRODUTOS.filter(p => cat==="Todos" || p.cat===cat).map(p => `
+    <article class="card">
+      <div class="pic" style="background:${p.cor}1f">${art(p.tipo,p.cor,p.txt)}</div>
+      <div class="body"><h3>${esc(p.nome)}</h3><p>${esc(p.desc)}</p>
+        <div class="meta"><b>${esc(p.preco)}</b><button class="ask" data-p="${esc(p.nome)}">Quero este</button></div>
+      </div>
+    </article>`).join("");
+  catsEl.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.c===cat));
+}
+catsEl.innerHTML = cats.map(c => `<button class="chip" data-c="${c}" aria-pressed="false">${c}</button>`).join("");
+catsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if(c) renderGrid(c.dataset.c); });
+renderGrid("Todos");
+
+// "Quero este" leva ao formulário com o produto escolhido
+const sel = document.getElementById("selProduto");
+sel.innerHTML = PRODUTOS.map(p => `<option>${esc(p.nome)}</option>`).join("") + "<option>Outro / ainda não sei</option>";
+grid.addEventListener("click", e => {
+  const b = e.target.closest(".ask"); if(!b) return;
+  sel.value = b.dataset.p;
+  document.getElementById("orcamento").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  setTimeout(() => document.querySelector('[name="nome"]').focus({preventScroll:true}), 500);
+});
+
+// Hero
+document.querySelectorAll("[data-art]").forEach(el => { const [t,c,x] = el.dataset.art.split("|"); el.innerHTML = art(t,c,x); });
+
+// Galeria com ampliação
+const gal = document.getElementById("gallery");
+gal.innerHTML = TRABALHOS.map((w,i) => `
+  <button class="shot" data-i="${i}" aria-label="Ampliar: ${esc(w.leg)}">
+    <div style="background:${w.cor}22;padding:${i%3===0?34:20}px 24px">${art(w.tipo,w.cor,w.txt)}</div>
+    <figcaption><b>${esc(w.leg)}</b>${esc(w.sub)}</figcaption>
+  </button>`).join("");
+const dlg = document.getElementById("zoom");
+gal.addEventListener("click", e => {
+  const s = e.target.closest(".shot"); if(!s) return;
+  const w = TRABALHOS[s.dataset.i];
+  document.getElementById("zoomPic").innerHTML = art(w.tipo,w.cor,w.txt);
+  document.getElementById("zoomCap").textContent = w.leg;
+  dlg.showModal();
+});
+document.getElementById("zoomClose").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if(e.target===dlg) dlg.close(); });
+
+// Formulário → WhatsApp (mostra a mensagem antes de abrir)
+const form = document.getElementById("form"), prev = document.getElementById("preview");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const f = Object.fromEntries(new FormData(form));
+  if(!f.nome.trim()){ form.nome.focus(); form.nome.setAttribute("aria-invalid","true"); return; }
+  const data = f.data ? new Date(f.data+"T12:00").toLocaleDateString("pt-BR") : "sem data definida";
+  const msg = `Olá, Ateliê Ninho! Sou ${f.nome.trim()} e quero um orçamento.\n\n• Produto: ${f.produto}\n• Ocasião: ${f.ocasiao}\n• Quantidade: ${f.qtd||1}\n• Para: ${data}\n• Ideia: ${f.ideia.trim()||"vou explicar por aqui"}`;
+  prev.textContent = "Mensagem que vai para o WhatsApp:\n\n" + msg;
+  prev.classList.add("on");
+  window.open(wa(msg), "_blank", "noopener");
+});
+document.getElementById("waFloat").href = wa("Olá, Ateliê Ninho! Quero fazer um pedido personalizado.");
+
+// Animação de entrada
+const io = "IntersectionObserver" in window && new IntersectionObserver(es => es.forEach(x => { if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } }), {threshold:.12});
+document.querySelectorAll("section .wrap > *").forEach(el => { if(io){ el.classList.add("reveal"); io.observe(el); } });
+</script>
+</body>
+</html>
