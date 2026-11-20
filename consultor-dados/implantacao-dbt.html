@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Implantação dbt · Regras de negócio testadas e documentadas | Bruno Areal</title>
+<meta name="description" content="Implantação dbt: regra única para receita e custo, testes de conciliação, documentação e execução agendada. A partir de R$ 24.000, em 6 a 8 semanas.">
+<link rel="canonical" href="https://spidermitobr.github.io/consultor-dados/implantacao-dbt.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Implantação dbt · Regras de negócio testadas e documentadas | Bruno Areal">
+<meta property="og:description" content="Implantação dbt: regra única para receita e custo, testes de conciliação, documentação e execução agendada. A partir de R$ 24.000, em 6 a 8 semanas.">
+<meta property="og:url" content="https://spidermitobr.github.io/consultor-dados/implantacao-dbt.html">
+<meta name="theme-color" content="#e8e8e3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23181715'/%3E%3Ctext x='16' y='24' font-family='Impact,sans-serif' font-size='22' fill='%23bfb21a' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<!-- Versão real: Google Analytics 4, Search Console (meta de verificação) e Microsoft Clarity entram aqui, com os IDs do cliente. -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://spidermitobr.github.io/consultor-dados/#bruno", "name": "Bruno Areal", "jobTitle": "Consultor de arquitetura de dados", "knowsAbout": ["Snowflake", "dbt", "n8n", "Supabase", "Engenharia de dados", "Inteligência artificial aplicada"]}, {"@type": "ProfessionalService", "@id": "https://spidermitobr.github.io/consultor-dados/#empresa", "name": "Bruno Areal Consultoria de Dados", "url": "https://spidermitobr.github.io/consultor-dados/", "founder": {"@id": "https://spidermitobr.github.io/consultor-dados/#bruno"}, "areaServed": "BR", "address": {"@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR"}, "email": "contato@exemplo.com.br", "priceRange": "R$ 9.800 – R$ 48.000"}, {"@type": "Service", "name": "Implantação dbt", "serviceType": "Implantação dbt", "provider": {"@id": "https://spidermitobr.github.io/consultor-dados/#empresa"}, "areaServed": "BR", "description": "Implantação dbt: regra única para receita e custo, testes de conciliação, documentação e execução agendada. A partir de R$ 24.000, em 6 a 8 semanas."}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Preciso de Snowflake para usar dbt?", "acceptedAnswer": {"@type": "Answer", "text": "Não. O dbt funciona sobre Snowflake, BigQuery, Postgres, Supabase e outros bancos. A escolha depende do volume e de quem vai manter."}}, {"@type": "Question", "name": "Minha equipe consegue manter depois?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, se tiver alguém que escreve SQL. Cada modelo vem documentado e o repasse é gravado."}}, {"@type": "Question", "name": "dbt Cloud ou dbt Core?", "acceptedAnswer": {"@type": "Answer", "text": "Depende do tamanho da equipe e do orçamento. O Core é gratuito e roda agendado; o Cloud facilita para equipes maiores. O diagnóstico recomenda um dos dois."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="demo-bar">Site demonstrativo com marca fictícia, feito para portfólio: nome, cases e números são de exemplo. <a href="../">Voltar ao portfólio</a></div>
+<header class="topo">
+  <a class="marca" href="./">Bruno Areal</a>
+  <a class="btn btn-sm topo-cta" href="contato.html#agendar">Agendar</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav class="menu" id="menu" aria-label="Principal"><a href="servicos.html">Serviços</a><a href="cases.html">Cases</a><a href="sobre.html">Sobre</a><a href="contato.html">Contato</a><a class="btn btn-sm" href="contato.html#agendar">Agendar conversa</a></nav>
+</header>
+<main id="conteudo">
+<div class="pg-cab"><h1 class="rev">Implantação dbt</h1><p class="rev" style="--d:80ms">Regras de negócio escritas uma vez, testadas todo dia e documentadas para a equipe manter sozinha.</p></div>
+<div class="texto-longo">
+  <aside><figure class="rev"><img src="img/hollerith-censo.webp" width="1200" height="1083" alt="Tabuladora Hollerith de madeira com mostradores" loading="lazy"><figcaption>Tabuladora Hollerith do censo de 1890.</figcaption></figure><p class="rev"><a class="btn" href="contato.html#agendar">Agendar conversa</a></p></aside>
+  <div class="corpo rev" style="--d:80ms"><h2>Por que implantar dbt</h2><p>Quando a mesma regra de receita está escrita em dez consultas diferentes, cada uma dá um número. O dbt junta as regras num lugar só, com testes que barram número errado antes de ele chegar ao painel.</p><h2>O que entra no projeto</h2><p>Estrutura de camadas (staging, intermediária e final), testes de unicidade, de valores aceitos e de conciliação com o financeiro, documentação navegável, execução agendada e aviso quando algo falha.</p><h2>Quanto custa e quanto tempo leva</h2><p>Uma implantação inicial cobrindo receita e custo leva de 6 a 8 semanas e parte de R$ 24.000. Funciona com Snowflake, BigQuery, Postgres e Supabase.</p></div>
+</div>
+<section class="faq" aria-labelledby="faq-t"><div class="rev"><h2 id="faq-t">Perguntas frequentes</h2></div><div class="rev" style="--d:80ms"><details><summary>Preciso de Snowflake para usar dbt?</summary><p>Não. O dbt funciona sobre Snowflake, BigQuery, Postgres, Supabase e outros bancos. A escolha depende do volume e de quem vai manter.</p></details><details><summary>Minha equipe consegue manter depois?</summary><p>Sim, se tiver alguém que escreve SQL. Cada modelo vem documentado e o repasse é gravado.</p></details><details><summary>dbt Cloud ou dbt Core?</summary><p>Depende do tamanho da equipe e do orçamento. O Core é gratuito e roda agendado; o Cloud facilita para equipes maiores. O diagnóstico recomenda um dos dois.</p></details></div></section>
+</main>
+<section class="fecho" aria-labelledby="fecho-t">
+  <h2 id="fecho-t" class="rev">Vamos fechar o número?</h2>
+  <div class="fecho-pe">
+    <p class="rev" style="--d:80ms">Meia hora de conversa, sem custo, para entender onde os seus números se desencontram.</p>
+    <div class="acoes rev" style="--d:160ms"><a class="link-sec" href="#" data-wa>ou fale pelo WhatsApp</a><a class="btn btn-acc" href="contato.html#agendar">Agendar conversa</a></div>
+  </div>
+</section><footer class="rodape">
+  <p class="rodape-nome" aria-hidden="true" data-escala="chega">Bruno Areal</p>
+  <div class="rodape-grade">
+    <ul class="contatos">
+      <li><a href="contato.html#agendar">Agendar conversa</a></li>
+      <li><a href="#" data-wa>WhatsApp</a></li>
+      <li><a href="mailto:contato@exemplo.com.br">contato@exemplo.com.br</a></li>
+    </ul>
+    <div class="rodape-links">
+      <div><h2>Serviços</h2><ul><li><a href="servicos.html#diagnostico">Diagnóstico de dados</a></li><li><a href="servicos.html#plataforma">Plataforma de dados</a></li><li><a href="servicos.html#automacao">Automação e IA</a></li></ul></div>
+      <div><h2>Especialidades</h2><ul><li><a href="consultoria-snowflake.html">Consultoria Snowflake</a></li><li><a href="implantacao-dbt.html">Implantação dbt</a></li></ul></div>
+      <div><h2>O site</h2><ul><li><a href="cases.html">Cases</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+    </div>
+  </div>
+  <div class="rodape-fim"><span>© 2026 Bruno Areal Consultoria de Dados · São Paulo, atendimento remoto (marca fictícia)</span><a href="#conteudo">Voltar ao topo</a></div>
+  <p class="creditos">Fotos históricas de máquinas de tabulação (Wikimedia Commons): <a href="https://commons.wikimedia.org/w/index.php?curid=95962794">"Close up of the Hollerith machine in operation (Reeve 014276), National Museum of Health…" by National Museum of Health and Medicine, CC BY 2.0,</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=46063689">"Hollerith census machine at CHM by Tomwsulcer" by Tomwsulcer, CC0,</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=1962628">"Punch card sorter" by waelder, CC BY 2.5,</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=20549260">"IBM 83 card sorter - reader brush" by Autopilot, CC BY-SA 3.0,</a>. Imagens convertidas para tons de cinza.</p>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>

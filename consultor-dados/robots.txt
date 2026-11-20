@@ -1,0 +1,4 @@
+# No site real este arquivo fica na raiz do domínio.
+User-agent: *
+Allow: /
+Sitemap: https://spidermitobr.github.io/consultor-dados/sitemap.xml

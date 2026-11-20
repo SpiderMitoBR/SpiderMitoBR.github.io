@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contato · Agende uma conversa | Bruno Areal</title>
+<meta name="description" content="Agende uma conversa de 30 minutos, sem custo, sobre os dados da sua empresa. Formulário com escolha de horário ou contato pelo WhatsApp.">
+<link rel="canonical" href="https://spidermitobr.github.io/consultor-dados/contato.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Contato · Agende uma conversa | Bruno Areal">
+<meta property="og:description" content="Agende uma conversa de 30 minutos, sem custo, sobre os dados da sua empresa. Formulário com escolha de horário ou contato pelo WhatsApp.">
+<meta property="og:url" content="https://spidermitobr.github.io/consultor-dados/contato.html">
+<meta name="theme-color" content="#e8e8e3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23181715'/%3E%3Ctext x='16' y='24' font-family='Impact,sans-serif' font-size='22' fill='%23bfb21a' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<!-- Versão real: Google Analytics 4, Search Console (meta de verificação) e Microsoft Clarity entram aqui, com os IDs do cliente. -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://spidermitobr.github.io/consultor-dados/#bruno", "name": "Bruno Areal", "jobTitle": "Consultor de arquitetura de dados", "knowsAbout": ["Snowflake", "dbt", "n8n", "Supabase", "Engenharia de dados", "Inteligência artificial aplicada"]}, {"@type": "ProfessionalService", "@id": "https://spidermitobr.github.io/consultor-dados/#empresa", "name": "Bruno Areal Consultoria de Dados", "url": "https://spidermitobr.github.io/consultor-dados/", "founder": {"@id": "https://spidermitobr.github.io/consultor-dados/#bruno"}, "areaServed": "BR", "address": {"@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR"}, "email": "contato@exemplo.com.br", "priceRange": "R$ 9.800 – R$ 48.000"}]}</script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="demo-bar">Site demonstrativo com marca fictícia, feito para portfólio: nome, cases e números são de exemplo. <a href="../">Voltar ao portfólio</a></div>
+<header class="topo">
+  <a class="marca" href="./">Bruno Areal</a>
+  <a class="btn btn-sm topo-cta" href="contato.html#agendar">Agendar</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav class="menu" id="menu" aria-label="Principal"><a href="servicos.html">Serviços</a><a href="cases.html">Cases</a><a href="sobre.html">Sobre</a><a href="contato.html" aria-current="page">Contato</a><a class="btn btn-sm" href="contato.html#agendar">Agendar conversa</a></nav>
+</header>
+<main id="conteudo">
+<div class="pg-cab"><h1 class="rev">Contato</h1><p class="rev" style="--d:80ms">Escolha um horário para uma conversa de 30 minutos, sem custo. Se preferir, chame no WhatsApp.</p></div>
+<div class="contato" id="agendar">
+  <div>
+    <form id="form-contato" class="form rev" novalidate>
+      <label>Nome<input name="nome" autocomplete="name" required></label>
+      <label>Empresa<input name="empresa" autocomplete="organization" required></label>
+      <label>Cargo<select name="cargo"><option>Diretor ou sócio</option><option>CFO ou controller</option><option>Gerente de TI</option><option>Outro</option></select></label>
+      <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
+      <label class="full">Telefone (opcional)<input name="telefone" type="tel" autocomplete="tel"></label>
+      <label class="full">O que está travando hoje?<textarea name="desafio" placeholder="Ex.: o comercial e o financeiro fecham a receita com valores diferentes."></textarea></label>
+      <fieldset class="full" style="border:0;padding:0;margin:0"><legend style="font-size:var(--step-small);font-weight:500;margin-bottom:8px">Horário da conversa (opcional)</legend><div class="horarios"><noscript>Escreva o melhor horário no campo acima.</noscript></div><input type="hidden" name="horario" id="horario"></fieldset>
+      <p class="erro full" role="alert"></p>
+      <div class="full"><button class="btn" type="submit">Agendar conversa</button></div>
+    </form>
+    <div class="ok-msg" role="status"><h2 tabindex="-1">Recebido, obrigado</h2><p data-resumo></p><p>Nesta demonstração o contato fica salvo no seu navegador. No site real, ele vai para uma tabela e chega por e-mail na hora.</p></div>
+  </div>
+  <aside class="lado rev" style="--d:120ms">
+    <h2>Como é a conversa</h2>
+    <p>Trinta minutos por vídeo. Você conta onde os números travam; eu digo se dá para resolver, em quanto tempo e por qual caminho. Se não for o meu tipo de projeto, indico quem faz.</p>
+    <p><a class="btn btn-acc" href="#" data-wa>Chamar no WhatsApp</a></p>
+    <p>Ou escreva para <a href="mailto:contato@exemplo.com.br">contato@exemplo.com.br</a>.</p>
+    <figure style="margin:32px 0 0"><img src="img/leitora.webp" width="1200" height="800" alt="Detalhe da escova de leitura de uma classificadora de cartões IBM 83" loading="lazy"><figcaption>Leitora de uma classificadora IBM 83.</figcaption></figure>
+  </aside>
+</div>
+</main>
+<footer class="rodape">
+  <p class="rodape-nome" aria-hidden="true" data-escala="chega">Bruno Areal</p>
+  <div class="rodape-grade">
+    <ul class="contatos">
+      <li><a href="contato.html#agendar">Agendar conversa</a></li>
+      <li><a href="#" data-wa>WhatsApp</a></li>
+      <li><a href="mailto:contato@exemplo.com.br">contato@exemplo.com.br</a></li>
+    </ul>
+    <div class="rodape-links">
+      <div><h2>Serviços</h2><ul><li><a href="servicos.html#diagnostico">Diagnóstico de dados</a></li><li><a href="servicos.html#plataforma">Plataforma de dados</a></li><li><a href="servicos.html#automacao">Automação e IA</a></li></ul></div>
+      <div><h2>Especialidades</h2><ul><li><a href="consultoria-snowflake.html">Consultoria Snowflake</a></li><li><a href="implantacao-dbt.html">Implantação dbt</a></li></ul></div>
+      <div><h2>O site</h2><ul><li><a href="cases.html">Cases</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+    </div>
+  </div>
+  <div class="rodape-fim"><span>© 2026 Bruno Areal Consultoria de Dados · São Paulo, atendimento remoto (marca fictícia)</span><a href="#conteudo">Voltar ao topo</a></div>
+  <p class="creditos">Fotos históricas de máquinas de tabulação (Wikimedia Commons): <a href="https://commons.wikimedia.org/w/index.php?curid=95962794">"Close up of the Hollerith machine in operation (Reeve 014276), National Museum of Health…" by National Museum of Health and Medicine, CC BY 2.0,</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=46063689">"Hollerith census machine at CHM by Tomwsulcer" by Tomwsulcer, CC0,</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=1962628">"Punch card sorter" by waelder, CC BY 2.5,</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=20549260">"IBM 83 card sorter - reader brush" by Autopilot, CC BY-SA 3.0,</a>. Imagens convertidas para tons de cinza.</p>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>
