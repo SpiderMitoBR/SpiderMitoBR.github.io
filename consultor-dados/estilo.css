@@ -1,3 +1,6 @@
+/* fontes hospedadas no site (subconjunto latino) */
+@font-face{font-family:"Bebas Neue";font-style:normal;font-weight:400;font-display:swap;src:url(fontes/bebasneue-400.woff2) format("woff2")}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400 600;font-display:swap;src:url(fontes/ebgaramond.woff2) format("woff2")}
 /* Bruno Areal · consultoria de arquitetura de dados (marca fictícia, amostra de portfólio) */
 :root{
   --bg:#e8e8e3; --surface:#dcdcd6; --surface-2:#d1d1ca;
